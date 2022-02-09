@@ -1,0 +1,189 @@
+package Scanner;
+
+import java.net.*;
+import java.io.IOException;
+import java.util.*;
+import java.util.concurrent.locks.*;
+
+public class Checker implements Runnable {
+
+	private int checkId;
+	private Address host = null;
+	private final int timeSleep = 6;
+	private Set<Address> badHosts = null;
+	private Set<Address> goodHosts = null;
+	private boolean itWasOffline = false;
+	private static ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+	private Lock writeLock = lock.writeLock();
+	
+	public Checker(int checkId, Address host, Set<Address> badHosts, Set<Address> goodHosts) {
+		this.checkId = checkId;
+		if(host == null) {
+			throw new NullPointerException();
+		}
+		this.host = host;
+		this.badHosts = badHosts;
+		this.goodHosts = goodHosts;
+	}
+	
+	public synchronized void run() {
+		boolean check = false;
+		while(true) {
+			try {
+				InetAddress Address = InetAddress.getByName(host.getHost());
+				check = Address.isReachable(5000);
+				// Attenzione questo metodo provera' a stabilire una connesione di tipo TCP
+				// Sulla porta 7 (Echo port)
+				if(check) { // Prima verifica
+					host.setStatus(true);
+					host.setTypeErr(3);
+					if(itWasOffline) {
+						itWasOffline = false;
+						writeLock.lock();
+						goodHosts.add(host);
+						System.out.println("");
+						System.out.println("");
+						System.out.println("[" + host.getHost() + "] è connesso");
+						System.out.println("");
+						System.out.print("Scegli: ");
+						if(!Main.generalStatusGood) {
+							Main.generalStatusGood = true;
+						}
+						writeLock.unlock();
+					}
+				}else { // Se la prima verifica dovesse fallire
+					InetAddress a1 = InetAddress.getByName(host.getHost());
+					check = a1.isReachable(5000);
+					if(check) { // Seconda verifica
+						host.setStatus(true);
+						host.setTypeErr(3);
+						if(itWasOffline) {
+							itWasOffline = false;
+							writeLock.lock();
+							goodHosts.add(host);
+							System.out.println("");
+							System.out.println("");
+							System.out.println("[" + host.getHost() + "] è connesso");
+							System.out.println("");
+							System.out.print("Scegli: ");
+							if(!Main.generalStatusGood) {
+								Main.generalStatusGood = true;
+							}
+							writeLock.unlock();
+						}
+					}else { // Se la seconda verifica dovesse fallire
+						InetAddress a2 = InetAddress.getByName(host.getHost());
+						check = a2.isReachable(5000);
+						if(check) { // Terza verifica
+							host.setStatus(true);
+							host.setTypeErr(3);
+							if(itWasOffline) {
+								itWasOffline = false;
+								writeLock.lock();
+								goodHosts.add(host);
+								System.out.println("");
+								System.out.println("");
+								System.out.println("[" + host.getHost() + "] è connesso");
+								System.out.println("");
+								System.out.print("Scegli: ");
+								if(!Main.generalStatusGood) {
+									Main.generalStatusGood = true;
+								}
+								writeLock.unlock();
+							}
+						}else { // Se la terza verifica dovesse fallire
+							InetAddress a3 = InetAddress.getByName(host.getHost());
+							check = a3.isReachable(5000);
+							if(check) { // Quarta verifica
+								host.setStatus(true);
+								host.setTypeErr(3);
+								if(itWasOffline) {
+									itWasOffline = false;
+									writeLock.lock();
+									goodHosts.add(host);
+									System.out.println("");
+									System.out.println("");
+									System.out.println("[" + host.getHost() + "] è connesso");
+									System.out.println("");
+									System.out.print("Scegli: ");
+									if(!Main.generalStatusGood) {
+										Main.generalStatusGood = true;
+									}
+									writeLock.unlock();
+								}
+							} else {
+								InetAddress a4 = InetAddress.getByName(host.getHost());
+								check = a4.isReachable(5000);
+								if(check) { // Quinta verifica
+									host.setStatus(true);
+									host.setTypeErr(3);
+									if(itWasOffline) {
+										itWasOffline = false;
+										writeLock.lock();
+										goodHosts.add(host);
+										System.out.println("");
+										System.out.println("");
+										System.out.println("[" + host.getHost() + "] è connesso");
+										System.out.println("");
+										System.out.print("Scegli: ");
+										if(!Main.generalStatusGood) {
+											Main.generalStatusGood = true;
+										}
+										writeLock.unlock();
+									}
+								} else {
+									// Non riesce a connettersi
+									host.setStatus(false);
+									host.setTypeErr(1); // case 1
+									if(!itWasOffline) {
+										writeLock.lock();
+										badHosts.add(host);
+										//System.out.println("Connessione non riuscita (" + host.getHost() + "), sto notificando...");
+										itWasOffline = true;
+										if(!Main.generalStatusBad) {
+											Main.generalStatusBad = true;
+										}
+										writeLock.unlock();
+									}else {
+										//System.out.println("Connessione non riuscita (" + host.getHost() + "), ho gia' notificato!");
+									}
+								}
+							}
+						}
+					}
+				}
+			} catch(IOException e) {
+				host.setStatus(false);
+				host.setTypeErr(2); // case 2
+				if(!itWasOffline) {
+					writeLock.lock();
+					badHosts.add(host);
+					//System.out.println("Errore di connessione (Time out!) (" + host.getHost() + "), sto notificando...");
+					itWasOffline = true;
+					if(!Main.generalStatusBad) {
+						Main.generalStatusBad = true;
+					}
+					writeLock.unlock();
+				}else {
+					//System.out.println("Errore di connessione (Time out!) (" + host.getHost() + "), ho gi� notificato!");
+				}
+			}
+			sleep(timeSleep);
+		}
+	}
+	
+	public int getCheckId() {
+		return checkId;
+	}
+	
+	public static void sleep(int timeLongMillis) {
+		for(int i = 0; i < timeLongMillis; i++) {
+			try {
+				Thread.sleep(1000);
+			}catch(InterruptedException e) {
+				System.out.println("Il thread Checker è stato interrotto");
+			}
+		}
+	}
+	
+}
