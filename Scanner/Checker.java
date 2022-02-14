@@ -163,12 +163,16 @@ public class Checker implements Runnable {
 				}
 			}
 			sleep(timeSleep);
+			/*
+			if(Console.generalStatusBad || Console.generalStatusGood) {
+				
+			}
 			try {
 				threadMail.join();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 		}
 	}
 	

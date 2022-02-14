@@ -139,21 +139,6 @@ public class Console {
 		consolePrint.setTouchEnabled(true);
 		consolePrint.setBounds(10, 30, 938, 127);
 		
-		Button exit = new Button(shell, SWT.NONE);
-		exit.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				consolePrint.append(dateReturn() + "Sto terminando i thread");
-				for(Thread th : threadList) {
-					th.interrupt();
-				}
-				sleep(3);
-				shell.close();
-			}
-		});
-		exit.setText("Esci");
-		exit.setBounds(848, 408, 100, 33);
-		
 		// Verifico il backup
 		if(!manageBackup(consolePrint)) {
 			// Prendo i dati
@@ -283,6 +268,22 @@ public class Console {
 		});
 		addHost.setBounds(10, 408, 100, 33);
 		addHost.setText("Aggiungi");
+		
+		Button exit = new Button(shell, SWT.NONE);
+		exit.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				consolePrint.append(dateReturn() + "Sto terminando i thread");
+				for(Thread th : threadList) {
+					th.interrupt();
+				}
+				threadMail.interrupt();
+				sleep(3);
+				shell.close();
+			}
+		});
+		exit.setText("Esci");
+		exit.setBounds(848, 408, 100, 33);
 		
 		writeLog("Programma avviato con successo\n");
 		writeLog("Impianti caricati con successo\n");
