@@ -1,5 +1,3 @@
-package Scanner;
-
 import java.net.*;
 import java.io.IOException;
 import java.util.*;

@@ -1,5 +1,3 @@
-package Scanner;
-
 public class Address {
 	
 	private String name;
@@ -7,6 +5,10 @@ public class Address {
 	private int addressId;
 	private boolean status;
 	private int typeErr;
+	
+	public Address() {
+		//
+	}
 	
 	public Address(String name, String host, int addressId, boolean status) {
 		if(name == null || host == null) {
@@ -16,6 +18,10 @@ public class Address {
 		this.host = host;
 		this.addressId = addressId;
 		this.status = status;
+	}
+	
+	public int getAddressId() {
+		return addressId;
 	}
 	
 	public String getName() {
@@ -28,6 +34,14 @@ public class Address {
 	
 	public boolean getStatus() {
 		return status;
+	}
+	
+	public String statusString() {
+		if(status) {
+			return "ONLINE";
+		} else {
+			return "OFFLINE";
+		}
 	}
 	
 	public void setTypeErr(int typeErr) {

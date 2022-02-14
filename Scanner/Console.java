@@ -1,28 +1,35 @@
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.List;
-import org.eclipse.jface.viewers.ListViewer;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.custom.StyledText;
-
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 import org.eclipse.jface.text.TextViewer;
+import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
@@ -40,11 +47,15 @@ public class Console {
 	private static ArrayList<Address> hosts = null;   // hosts
 	private static User user = null; 				  // Utente dove vengono salvate le informazioni mittente, password, destinatario
 	private ReentrantLock lock = new ReentrantLock();
+	private Table table;
+	//private Table table;
 	/**
 	 * Launch the application.
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+		
 		// Lista degli host gia' presenti
 		hosts = new ArrayList<>();
 		// backupJson
@@ -59,6 +70,9 @@ public class Console {
 		logFile = new File("Logs/log.log");
 		// objectMapper
 		objectMapper = new ObjectMapper();
+		// Setting objectMapper
+		objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+		objectMapper.enable(SerializationFeature.FLUSH_AFTER_WRITE_VALUE);
 		// PoolThread
 		poolThread = Executors.newCachedThreadPool();
 		try {
@@ -86,20 +100,12 @@ public class Console {
 
 	/**
 	 * Create contents of the window.
+	 * @throws IOException 
 	 */
 	protected void createContents() {
 		shell = new Shell();
 		shell.setSize(974, 482);
-		shell.setText("SWT Application");
-		
-		Button addHost = new Button(shell, SWT.NONE);
-		addHost.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-			}
-		});
-		addHost.setBounds(10, 408, 100, 33);
-		addHost.setText("Aggiungi");
+		shell.setText("Scanner (Menu)");
 		
 		Button rmvHost = new Button(shell, SWT.NONE);
 		rmvHost.addSelectionListener(new SelectionAdapter() {
@@ -130,16 +136,74 @@ public class Console {
 		exit.setText("Esci");
 		exit.setBounds(848, 408, 100, 33);
 		
-		List list = new List(shell, SWT.BORDER);
-		list.setBounds(10, 212, 938, 181);
+		
 		
 		TextViewer textViewer = new TextViewer(shell, SWT.BORDER);
 		StyledText consolePrint = textViewer.getTextWidget();
 		consolePrint.setEditable(false);
 		consolePrint.setTouchEnabled(true);
 		consolePrint.setBounds(10, 30, 938, 127);
+		
 		// Verifico il backup
-		manageBackup(consolePrint);
+		if(!manageBackup(consolePrint)) {
+			// Prendo i dati
+			Properties prop = new Properties();
+			try {
+				FileInputStream input = new FileInputStream("C:\\Users\\Davide Bulotta\\eclipse-workspace\\ScannerGUI\\src\\UserSetting.properties");
+				prop.load(input);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				System.err.println("IOException");
+				e.printStackTrace();
+			}
+			
+			String sender, password, recipient;
+			sender = prop.getProperty("MITTENTE");
+			password = prop.getProperty("PASSWORD");
+			recipient = prop.getProperty("DESTINATARIO");
+			
+			user = new User(sender,password,recipient);
+			
+			// Recupero le informazioni host
+			ArrayList<String> inputSettings = new ArrayList<>();
+			try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Davide Bulotta\\eclipse-workspace\\ScannerGUI\\src\\config.txt"))) {
+				String line;
+				while((line = br.readLine()) != null) {
+					inputSettings.add(line);
+				}
+			} catch (FileNotFoundException e) {
+				consolePrint.append(dateReturn() + "Non ho trovato nessun file config.txt\n");
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			int id = 1;
+			int count = -1;
+			if(!inputSettings.isEmpty()) {
+				String name, host;
+				while(true) {
+					if((count + 1) >= inputSettings.size()) {
+						break;
+					} else {
+						count++; // Mi sposto nella lista
+						name = inputSettings.get(count);
+						count++;
+						host = inputSettings.get(count);
+						Address a = new Address(name, host, id, false);
+						hosts.add(a);
+						id++;
+					}
+				}
+			}
+		}
+		
+		try {
+			objectMapper.writeValue(userJson, user);
+			objectMapper.writeValue(hostsJson, hosts);
+		} catch(IOException e) {
+			consolePrint.append(dateReturn() + "Errore creazione backup\n");
+		}
 		
 		Label lblListaImpianti = new Label(shell, SWT.NONE);
 		lblListaImpianti.setBounds(10, 191, 100, 15);
@@ -148,35 +212,85 @@ public class Console {
 		Label lblNewLabel = new Label(shell, SWT.NONE);
 		lblNewLabel.setBounds(10, 10, 55, 15);
 		lblNewLabel.setText("CONSOLE");
+		
+		TableViewer tableViewer = new TableViewer(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		table = tableViewer.getTable();
+		table.setBounds(10, 221, 938, 181);
+		table.setHeaderVisible(true);
+		table.setLinesVisible(true);
+		
+		TableColumn tcIdV = new TableColumn(table, SWT.NONE);
+		tcIdV.setText("         Id");
+		
+		TableColumn tcAddressV = new TableColumn(table, SWT.NONE);
+		tcAddressV.setText("         Impianto");
+		
+		TableColumn tcHostV = new TableColumn(table, SWT.NONE);
+		tcHostV.setText("         Host");
+		
+		TableColumn tcStatusV = new TableColumn(table, SWT.NONE);
+		tcStatusV.setText("         Status");
+		
+		TableColumn[] columnsV = table.getColumns();
+		
+		for(int i = 0; i < hosts.size(); i++) {
+			Address address = hosts.get(i);
+			TableItem item = new TableItem(table, SWT.NONE);
+			item.setText(0, Integer.toString(address.getAddressId()));
+			item.setText(1, address.getName());
+			item.setText(2, address.getHost());
+			item.setText(3, address.statusString());
+		}
+		for(int i = 0; i < columnsV.length; i++) {
+			columnsV[i].pack();
+		}
+		
+		UpdateTable updateTable = new UpdateTable(tableViewer, columnsV, hosts, Display.getDefault()); // Creo l'oggetto per gestire i dati
+		Thread tableThread = new Thread(updateTable); // Creo il thread
+		tableThread.start();
+		
+		Button addHost = new Button(shell, SWT.NONE);
+		addHost.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				AddHost addHost = new AddHost(hosts, consolePrint, objectMapper);
+				addHost.open();
+			}
+		});
+		addHost.setBounds(10, 408, 100, 33);
+		addHost.setText("Aggiungi");
 	}
 	
-	private void manageBackup(StyledText consolePrint) {
+	private boolean manageBackup(StyledText consolePrint) {
 		boolean checkDir = false;
+		boolean res = true; // Se vero prelevo i dati backup
 		if(!backupJson.exists()) {
 			checkDir = true;
+			res = false;
 			lock.lock();
-			consolePrint.append("Cartella backup non trovata!\n");
-			consolePrint.append("File userJson non trovato!\n");
-			consolePrint.append("File hostsJson non trovato!\n");
+			consolePrint.append(dateReturn() + "Cartella backup non trovata!\n");
+			consolePrint.append(dateReturn() + "File userJson non trovato!\n");
+			consolePrint.append(dateReturn() + "File hostsJson non trovato!\n");
 			try {
 				backupJson.mkdir();
-				consolePrint.append("Cartella backup creata\n");
+				consolePrint.append(dateReturn() + "Cartella backup creata\n");
 				userJson.createNewFile();
-				consolePrint.append("File userJson creato\n");
+				consolePrint.append(dateReturn() + "File userJson creato\n");
 				hostsJson.createNewFile();
-				consolePrint.append("File hostsJson creato\n");
+				consolePrint.append(dateReturn() + "File hostsJson creato\n");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 			lock.unlock();
 		} else {
-			consolePrint.append("Cartella backup trovata\n");
+			consolePrint.append(dateReturn() + "Cartella backup trovata\n");
 			if(!userJson.exists()) {
+				res = false;
 				lock.lock();
-				consolePrint.append("File userJson non trovato!\n");
+				consolePrint.append(dateReturn() + "File userJson non trovato!\n");
 				try {
 					userJson.createNewFile();
-					consolePrint.append("File userJson creato\n");
+					consolePrint.append(dateReturn() + "File userJson creato\n");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -191,16 +305,17 @@ public class Console {
 						e.printStackTrace();
 					}
 				} else {
-					// Altrimenti li prendo dal config.txt
-					
+					// Altrimenti li prendo da UserSetting.properties
+					res = false;
 				}
 			}
 			if(!hostsJson.exists()) {
+				res = false;
 				lock.lock();
-				consolePrint.append("File hostsJson non trovato!\n");
+				consolePrint.append(dateReturn() + "File hostsJson non trovato!\n");
 				try {
 					userJson.createNewFile();
-					consolePrint.append("File hostsJson creato\n");
+					consolePrint.append(dateReturn() + "File hostsJson creato\n");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -214,20 +329,23 @@ public class Console {
 					}
 				} else {
 					//
+					res = false;
 				}
 			}
 		}
 		// Controllo cartella log
 		if(!logDir.exists()) {
-			lock.unlock();
-			consolePrint.append("Cartella logs non trovata!\n");
+			lock.lock();
+			consolePrint.append(dateReturn() + "Cartella logs non trovata!\n");
 			try {
 				logDir.mkdir();
-				consolePrint.append("Cartella logs creata\n");
+				consolePrint.append(dateReturn() + "Cartella logs creata\n");
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
+			lock.unlock();
 		}
+		return res;
 	}
 	
 	public static void sleep(int TimeLongMillis) {
@@ -239,5 +357,13 @@ public class Console {
 			}
 		}
 		
+	}
+	
+	public static String dateReturn() {
+		String dateStr = "";
+		LocalDate date = LocalDate.now();
+		LocalTime time = LocalTime.now();
+		dateStr += "[" + date + "--" + time + "]: ";
+		return dateStr;
 	}
 }
