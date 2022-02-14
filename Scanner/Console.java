@@ -1,18 +1,28 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Properties;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Logger;
 
 import org.eclipse.jface.text.TextViewer;
 import org.eclipse.jface.viewers.TableViewer;
@@ -36,18 +46,26 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 public class Console {
 
+	public static boolean generalStatusGood = false;
+	public static boolean generalStatusBad = false;
+	
 	protected Shell shell;
 	public static ExecutorService poolThread = null; // Da sostituire con array di Thread
 	private static File backupJson = null;
 	private static File hostsJson = null; // File hostsJson
 	private static File userJson = null;  // File userJson
 	private static File logDir = null;
-	private static File logFile = null;
+	private static File dayLog = null;
 	private static ObjectMapper objectMapper = null;  // objectMapper
 	private static ArrayList<Address> hosts = null;   // hosts
 	private static User user = null; 				  // Utente dove vengono salvate le informazioni mittente, password, destinatario
+	private static Set<Address> badHosts = new HashSet<>();
+	private static Set<Address> goodHosts = new HashSet<>();
 	private ReentrantLock lock = new ReentrantLock();
 	private Table table;
+	private static String logPath = "Logs/" + getDay() + ".txt";
+	private static ArrayList<Thread> threadList;
+	
 	//private Table table;
 	/**
 	 * Launch the application.
@@ -67,14 +85,13 @@ public class Console {
 		// logDir
 		logDir = new File("Logs");
 		// logFile
-		logFile = new File("Logs/log.log");
+		dayLog = new File(logPath);
 		// objectMapper
 		objectMapper = new ObjectMapper();
 		// Setting objectMapper
 		objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
 		objectMapper.enable(SerializationFeature.FLUSH_AFTER_WRITE_VALUE);
-		// PoolThread
-		poolThread = Executors.newCachedThreadPool();
+		
 		try {
 			Console window = new Console();
 			window.open();
@@ -97,7 +114,7 @@ public class Console {
 			}
 		}
 	}
-
+	
 	/**
 	 * Create contents of the window.
 	 * @throws IOException 
@@ -116,33 +133,26 @@ public class Console {
 		rmvHost.setText("Rimuovi");
 		rmvHost.setBounds(194, 408, 100, 33);
 		
-		Button exit = new Button(shell, SWT.NONE);
-		exit.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				System.out.println("");
-				System.out.println("Sto terminando i thread...");
-				poolThread.shutdown();
-				try {
-					if(!poolThread.awaitTermination(3000, TimeUnit.MILLISECONDS)) {
-						poolThread.shutdownNow();
-					}
-				} catch(InterruptedException e1) {
-					poolThread.shutdownNow();
-				}
-				sleep(3);
-			}
-		});
-		exit.setText("Esci");
-		exit.setBounds(848, 408, 100, 33);
-		
-		
-		
 		TextViewer textViewer = new TextViewer(shell, SWT.BORDER);
 		StyledText consolePrint = textViewer.getTextWidget();
 		consolePrint.setEditable(false);
 		consolePrint.setTouchEnabled(true);
 		consolePrint.setBounds(10, 30, 938, 127);
+		
+		Button exit = new Button(shell, SWT.NONE);
+		exit.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				consolePrint.append(dateReturn() + "Sto terminando i thread");
+				for(Thread th : threadList) {
+					th.interrupt();
+				}
+				sleep(3);
+				shell.close();
+			}
+		});
+		exit.setText("Esci");
+		exit.setBounds(848, 408, 100, 33);
 		
 		// Verifico il backup
 		if(!manageBackup(consolePrint)) {
@@ -205,6 +215,20 @@ public class Console {
 			consolePrint.append(dateReturn() + "Errore creazione backup\n");
 		}
 		
+		// Gestisco ed avvio tutti i thread
+		threadList = new ArrayList<>();
+		
+		Mail mail = new Mail(goodHosts, badHosts, user.getSender(), user.getPassword(), user.getRecipient(), consolePrint);
+		Thread threadMail = new Thread(mail);
+		threadMail.start();
+		
+		for(Address h : hosts) {
+			Checker check = new Checker(h.getAddressId(), h, badHosts, goodHosts, consolePrint, threadMail);
+			Thread th = new Thread(check);
+			threadList.add(th);
+			th.start();
+		}
+		
 		Label lblListaImpianti = new Label(shell, SWT.NONE);
 		lblListaImpianti.setBounds(10, 191, 100, 15);
 		lblListaImpianti.setText("LISTA IMPIANTI");
@@ -253,12 +277,17 @@ public class Console {
 		addHost.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				AddHost addHost = new AddHost(hosts, consolePrint, objectMapper);
+				AddHost addHost = new AddHost(hosts, consolePrint, objectMapper, tableViewer, threadList, goodHosts, badHosts, threadMail);
 				addHost.open();
 			}
 		});
 		addHost.setBounds(10, 408, 100, 33);
 		addHost.setText("Aggiungi");
+		
+		writeLog("Programma avviato con successo\n");
+		writeLog("Impianti caricati con successo\n");
+		writeLog("Tabelle caricate con successo\n");
+		writeLog("Utente caricato con successo\n");
 	}
 	
 	private boolean manageBackup(StyledText consolePrint) {
@@ -344,6 +373,14 @@ public class Console {
 				e.printStackTrace();
 			}
 			lock.unlock();
+			try {
+				dayLog.createNewFile();
+				consolePrint.append(dateReturn() + "File log\n");
+				writeLog("Log avviato (" + logPath + ")\n");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return res;
 	}
@@ -359,11 +396,53 @@ public class Console {
 		
 	}
 	
-	public static String dateReturn() {
+	// Questo metodo controlla periodicamente se viene aggiornata la data dei log creando un nuovo file per ogni nuovo giorno
+	public synchronized static void checkLog(StyledText consolePrint) {
+		String newLogPath = "Logs/" + getDay() + ".txt";
+		logPath = newLogPath;
+		dayLog = new File(logPath);
+		if(!dayLog.exists()) {
+			try {
+				dayLog.createNewFile();
+				consolePrint.append(dateReturn() + "Nuovo file log creato");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public synchronized static String dateReturn() {
 		String dateStr = "";
-		LocalDate date = LocalDate.now();
-		LocalTime time = LocalTime.now();
-		dateStr += "[" + date + "--" + time + "]: ";
+		LocalDateTime date = LocalDateTime.now();
+		DateTimeFormatter myFormatDate = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+		dateStr = date.format(myFormatDate);
+		return "[" + dateStr + "] ";
+	}
+	
+	public synchronized static String getDay() {
+		String dateStr = "";
+		LocalDateTime date = LocalDateTime.now();
+		DateTimeFormatter myFormatDate = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+		dateStr = date.format(myFormatDate);
 		return dateStr;
+	}
+	
+	public synchronized static void writeLog(String text) {
+		try {
+			FileWriter writeLog = new FileWriter(logPath, true);
+			writeLog.write(dateReturn() + text);
+			writeLog.close();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public synchronized static void writeConsole(StyledText consolePrint, String text) {
+		Display.getDefault().asyncExec(new Runnable() {
+			public void run() {
+				consolePrint.append(dateReturn() + text);
+			}
+		});
 	}
 }

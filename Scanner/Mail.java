@@ -1,21 +1,25 @@
 import java.util.*;
 import java.util.concurrent.locks.*;
 
+import org.eclipse.swt.custom.StyledText;
+
 public class Mail implements Runnable {
 	private Set<Address> goodHosts = null;
 	private Set<Address> badHosts = null;
 	private String destinatario;
 	private String username;
 	private String password;
+	private StyledText consolePrint;
 	private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 	private Lock writeLock = lock.writeLock();
 	
-	public Mail(Set<Address> goodHosts, Set<Address> badHosts, String destinatario, String username, String password) {
+	public Mail(Set<Address> goodHosts, Set<Address> badHosts, String destinatario, String username, String password, StyledText consolePrint) {
 		this.goodHosts = goodHosts;
 		this.badHosts = badHosts;
 		this.destinatario = destinatario;
 		this.username = username;
 		this.password = password;
+		this.consolePrint = consolePrint;
 	}
 	
 	@Override
@@ -23,7 +27,7 @@ public class Mail implements Runnable {
 		while(true) {
 			String subjectGood = "";
 			String messaggioGood = "";
-			if(Main.generalStatusGood) {
+			if(Console.generalStatusGood) {
 				if(goodHosts == null) {
 					throw new NullPointerException();
 				}
@@ -36,10 +40,10 @@ public class Mail implements Runnable {
 						messaggioGood = messaggioGood + h + "\n";
 					}
 				}else {
-					subjectGood = "Uno dei tuoi impianti è tornato online [";
+					subjectGood = "Uno dei tuoi impianti e' tornato online [";
 					
 					for(Address h : goodHosts) {
-						messaggioGood = "Questo tuo impianto è di nuovo operativo: \n";
+						messaggioGood = "Questo tuo impianto e' di nuovo operativo: \n";
 						subjectGood = subjectGood + h.getName();
 						messaggioGood = messaggioGood + h + "\n";
 					}
@@ -49,27 +53,25 @@ public class Mail implements Runnable {
 				SendMail Mail = new SendMail(destinatario, username, subjectGood, messaggioGood, password);
 				Mail.sendMail();
 				writeLock.lock();
-				Main.generalStatusGood = false;
+				Console.generalStatusGood = false;
 				writeLock.unlock();
 			}
 			
 			
 			String subjectBad = "";
 			String messaggioBad = "";
-			if(Main.generalStatusBad) {
-				System.out.println("");
-				System.out.println("");
-				System.out.println("Ecco la lista degli impianti non funzionanti:");
-				System.out.println("");
+			if(Console.generalStatusBad) {
+				String format = "Ecco la lista degli impianti non funzionanti:\n";
 				if(badHosts == null) {
 					throw new NullPointerException();
 				}
+				format = format + "//////////////////////////////////////////////////////////////////////////////////////////////////\n";
 				for(Address h : badHosts) {
-					System.out.println(h);
+					format = format + "/// " + h + " ///\n"; 
 				}
-				System.out.println("");
-				System.out.println("");
-				System.out.print("Scegli: ");
+				format = format + "/////////////////////////////////////////////////////////////////////////////////////////////////\n";
+				Console.writeConsole(consolePrint, format);
+				Console.writeLog(format);
 				if(badHosts.size() > 1) {
 					subjectBad = "Alcuni dei tuoi impianti sono offline ";
 					messaggioBad = "Attenzione questi impianti risultano offline : \n";
@@ -78,7 +80,7 @@ public class Mail implements Runnable {
 						messaggioBad = messaggioBad + h + "\n";
 					}
 				}else {
-					subjectBad = "Uno dei tuoi impianti è offline ";
+					subjectBad = "Uno dei tuoi impianti e' offline ";
 					
 					for(Address h : badHosts) {
 						subjectBad = subjectBad + "[" + h.getName() + "] ";
@@ -90,7 +92,7 @@ public class Mail implements Runnable {
 				SendMail Mail = new SendMail(destinatario, username, subjectBad, messaggioBad, password);
 				Mail.sendMail();
 				writeLock.lock();
-				Main.generalStatusBad = false;
+				Console.generalStatusBad = false;
 				writeLock.unlock();
 			}
 			sleep(3);
@@ -102,7 +104,7 @@ public class Mail implements Runnable {
 			try {
 				Thread.sleep(1000);
 			}catch(InterruptedException e) {
-				System.out.println("Il thread Mail è stato interrotto");
+				//
 			}
 		}
 	}

@@ -1,5 +1,7 @@
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Label;
 
 import java.io.File;
@@ -7,9 +9,11 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Set;
 import java.util.concurrent.locks.ReentrantLock;
 
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.widgets.Button;
@@ -29,17 +33,25 @@ public class AddHost {
 	private StyledText consolePrint = null;  // consolePrint
 	private ObjectMapper objectMapper = null;// La usiamo per aggiornare i backup
 	private File hostsJson;
+	private TableViewer tableViewer;
+	private ArrayList<Thread> threadList;
+	private Set<Address> goodHosts;
+	private Set<Address> badHosts;
+	private Thread threadMail;
 	private ReentrantLock lock = new ReentrantLock();
 	
 	public AddHost() {
 		// Vuoto
 	}
 	
-	public AddHost(ArrayList<Address> hosts, StyledText consolePrint, ObjectMapper objectMapper) {
+	public AddHost(ArrayList<Address> hosts, StyledText consolePrint, ObjectMapper objectMapper, TableViewer tableViewer, ArrayList<Thread> threadList, Set<Address> goodHosts, Set<Address> badHosts, Thread threadMail) {
 		this.hosts = hosts;
 		this.consolePrint = consolePrint;
 		this.objectMapper = objectMapper;
 		hostsJson = new File("Backup/hostsJson.json");
+		this.tableViewer = tableViewer;
+		this.threadList = threadList;
+		this.threadMail = threadMail;
 	}
 	
 	/**
@@ -98,17 +110,34 @@ public class AddHost {
 					MessageDialog.openError(Display.getDefault().getActiveShell(), "Errore", "Devi inserire degli argomenti!");
 				} else {
 					//String name, String host, int addressId, boolean status
-					Address host = new Address(textAddress.getMessage(), textHost.getMessage(), hosts.size() + 1, false);
+					Address host = new Address(textAddress.getText(), textHost.getText(), hosts.size() + 1, false);
 					hosts.add(host);
 					lock.lock();
 					try {
 						objectMapper.writeValue(hostsJson, hosts);
 					} catch(IOException e1) {
-						consolePrint.append(dateReturn() + "Errore aggiornamento backup\n");
+						consolePrint.append(Console.dateReturn() + "Errore aggiornamento backup\n");
+						Console.writeLog("Errore aggiornamento backup\n");
 					}
-					consolePrint.append(dateReturn() + "Impianto aggiunto con successo {" + textHost.getMessage() + "} {" + textAddress.getMessage() + "}");
+					Table table = tableViewer.getTable();
+					TableItem item = new TableItem(table, SWT.NONE);
+					item.setText(0, Integer.toString(host.getAddressId()));
+					item.setText(1, host.getName());
+					item.setText(2, host.getHost());
+					item.setText(3, host.statusString());
+					// Creo il checker
+					Checker check = new Checker(host.getAddressId(), host, badHosts, goodHosts, consolePrint, threadMail);
+					// Creo il thread
+					Thread th = new Thread(check);
+					// Aggiungo il thread alla lista
+					threadList.add(th);
+					// Avvio il thread
+					th.start();
+					consolePrint.append(Console.dateReturn() + "Impianto aggiunto con successo {" + textHost.getText() + "} {" + textAddress.getText() + "}");
+					Console.writeLog("Impianto aggiunto con successo {" + textHost.getText() + "}" + "{" + textAddress.getText() + "}\n");
 					lock.unlock();
 					MessageDialog.openConfirm(Display.getDefault().getActiveShell(), "Successo", "Impianto aggiunto");
+					shell.close();
 				}
 			}
 		});
@@ -131,13 +160,5 @@ public class AddHost {
 		textHost = new Text(shell, SWT.BORDER | SWT.CENTER);
 		textHost.setBounds(180, 48, 321, 21);
 
-	}
-	
-	public static String dateReturn() {
-		String dateStr = "";
-		LocalDate date = LocalDate.now();
-		LocalTime time = LocalTime.now();
-		dateStr += "[" + date + "--" + time + "]: ";
-		return dateStr;
 	}
 }

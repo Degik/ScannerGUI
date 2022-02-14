@@ -14,6 +14,7 @@ public class UpdateTable implements Runnable {
 	private TableColumn[] columns;		// Colonne da modificare
 	private ArrayList<Address> hosts;	// Lista degli host
 	private Display display;
+	private ReentrantLock lock = new ReentrantLock();
 	
 	public UpdateTable(TableViewer tableViewer, TableColumn[] columns, ArrayList<Address> hosts, Display display) {
 		this.tableViewer = tableViewer;
@@ -29,6 +30,7 @@ public class UpdateTable implements Runnable {
 		while(true) {
 			display.getDefault().asyncExec(new Runnable() {
 				public void run() {
+					lock.lock();
 					TableItem[] items = table.getItems();
 					for(int i = 0; i < hosts.size(); i++) {
 						Address address = hosts.get(i);
@@ -37,6 +39,7 @@ public class UpdateTable implements Runnable {
 					for(int i = 0; i < columns.length; i++) {
 						columns[i].pack();
 					}
+					lock.unlock();
 				}
 			});
 			sleep(15);

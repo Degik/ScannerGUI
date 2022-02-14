@@ -1,7 +1,13 @@
 import java.net.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.locks.*;
+
+import org.eclipse.swt.custom.StyledText;
 
 public class Checker implements Runnable {
 
@@ -13,8 +19,10 @@ public class Checker implements Runnable {
 	private boolean itWasOffline = false;
 	private static ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 	private Lock writeLock = lock.writeLock();
+	private StyledText consolePrint;
+	private Thread threadMail;
 	
-	public Checker(int checkId, Address host, Set<Address> badHosts, Set<Address> goodHosts) {
+	public Checker(int checkId, Address host, Set<Address> badHosts, Set<Address> goodHosts, StyledText consolePrint, Thread threadMail) {
 		this.checkId = checkId;
 		if(host == null) {
 			throw new NullPointerException();
@@ -22,11 +30,14 @@ public class Checker implements Runnable {
 		this.host = host;
 		this.badHosts = badHosts;
 		this.goodHosts = goodHosts;
+		this.consolePrint = consolePrint;
+		this.threadMail = threadMail;
 	}
 	
 	public synchronized void run() {
 		boolean check = false;
 		while(true) {
+			Console.checkLog(consolePrint);
 			try {
 				InetAddress Address = InetAddress.getByName(host.getHost());
 				check = Address.isReachable(5000);
@@ -39,13 +50,10 @@ public class Checker implements Runnable {
 						itWasOffline = false;
 						writeLock.lock();
 						goodHosts.add(host);
-						System.out.println("");
-						System.out.println("");
-						System.out.println("[" + host.getHost() + "] è connesso");
-						System.out.println("");
-						System.out.print("Scegli: ");
-						if(!Main.generalStatusGood) {
-							Main.generalStatusGood = true;
+						Console.writeConsole(consolePrint, "[" + host.getHost() + "] e' connesso\n");
+						Console.writeLog("[" + host.getHost() + "] e' connesso\n");
+						if(!Console.generalStatusGood) {
+							Console.generalStatusGood = true;
 						}
 						writeLock.unlock();
 					}
@@ -59,13 +67,10 @@ public class Checker implements Runnable {
 							itWasOffline = false;
 							writeLock.lock();
 							goodHosts.add(host);
-							System.out.println("");
-							System.out.println("");
-							System.out.println("[" + host.getHost() + "] è connesso");
-							System.out.println("");
-							System.out.print("Scegli: ");
-							if(!Main.generalStatusGood) {
-								Main.generalStatusGood = true;
+							Console.writeConsole(consolePrint, "[" + host.getHost() + "] e' connesso\n");
+							Console.writeLog("[" + host.getHost() + "] e' connesso\n");
+							if(!Console.generalStatusGood) {
+								Console.generalStatusGood = true;
 							}
 							writeLock.unlock();
 						}
@@ -79,13 +84,10 @@ public class Checker implements Runnable {
 								itWasOffline = false;
 								writeLock.lock();
 								goodHosts.add(host);
-								System.out.println("");
-								System.out.println("");
-								System.out.println("[" + host.getHost() + "] è connesso");
-								System.out.println("");
-								System.out.print("Scegli: ");
-								if(!Main.generalStatusGood) {
-									Main.generalStatusGood = true;
+								Console.writeConsole(consolePrint, "[" + host.getHost() + "] e' connesso\n");
+								Console.writeLog("[" + host.getHost() + "] e' connesso\n");
+								if(!Console.generalStatusGood) {
+									Console.generalStatusGood = true;
 								}
 								writeLock.unlock();
 							}
@@ -99,13 +101,10 @@ public class Checker implements Runnable {
 									itWasOffline = false;
 									writeLock.lock();
 									goodHosts.add(host);
-									System.out.println("");
-									System.out.println("");
-									System.out.println("[" + host.getHost() + "] è connesso");
-									System.out.println("");
-									System.out.print("Scegli: ");
-									if(!Main.generalStatusGood) {
-										Main.generalStatusGood = true;
+									Console.writeConsole(consolePrint, "[" + host.getHost() + "] e' connesso\n");
+									Console.writeLog("[" + host.getHost() + "] e' connesso\n");
+									if(!Console.generalStatusGood) {
+										Console.generalStatusGood = true;
 									}
 									writeLock.unlock();
 								}
@@ -119,13 +118,10 @@ public class Checker implements Runnable {
 										itWasOffline = false;
 										writeLock.lock();
 										goodHosts.add(host);
-										System.out.println("");
-										System.out.println("");
-										System.out.println("[" + host.getHost() + "] è connesso");
-										System.out.println("");
-										System.out.print("Scegli: ");
-										if(!Main.generalStatusGood) {
-											Main.generalStatusGood = true;
+										Console.writeConsole(consolePrint, "[" + host.getHost() + "] e' connesso\n");
+										Console.writeLog("[" + host.getHost() + "] e' connesso\n");
+										if(!Console.generalStatusGood) {
+											Console.generalStatusGood = true;
 										}
 										writeLock.unlock();
 									}
@@ -138,8 +134,8 @@ public class Checker implements Runnable {
 										badHosts.add(host);
 										//System.out.println("Connessione non riuscita (" + host.getHost() + "), sto notificando...");
 										itWasOffline = true;
-										if(!Main.generalStatusBad) {
-											Main.generalStatusBad = true;
+										if(!Console.generalStatusBad) {
+											Console.generalStatusBad = true;
 										}
 										writeLock.unlock();
 									}else {
@@ -158,8 +154,8 @@ public class Checker implements Runnable {
 					badHosts.add(host);
 					//System.out.println("Errore di connessione (Time out!) (" + host.getHost() + "), sto notificando...");
 					itWasOffline = true;
-					if(!Main.generalStatusBad) {
-						Main.generalStatusBad = true;
+					if(!Console.generalStatusBad) {
+						Console.generalStatusBad = true;
 					}
 					writeLock.unlock();
 				}else {
@@ -167,6 +163,12 @@ public class Checker implements Runnable {
 				}
 			}
 			sleep(timeSleep);
+			try {
+				threadMail.join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -179,9 +181,8 @@ public class Checker implements Runnable {
 			try {
 				Thread.sleep(1000);
 			}catch(InterruptedException e) {
-				System.out.println("Il thread Checker è stato interrotto");
+				//
 			}
 		}
 	}
-	
 }
