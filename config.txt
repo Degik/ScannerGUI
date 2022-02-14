@@ -1,0 +1,8 @@
+Gimigliano
+192.168.1.1
+Gagliano
+192.168.1.10
+Tiriolo
+192.168.1.12
+Catanzaro lido
+10.0.0.7
