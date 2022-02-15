@@ -20,9 +20,8 @@ public class Checker implements Runnable {
 	private static ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 	private Lock writeLock = lock.writeLock();
 	private StyledText consolePrint;
-	private Thread threadMail;
 	
-	public Checker(int checkId, Address host, Set<Address> badHosts, Set<Address> goodHosts, StyledText consolePrint, Thread threadMail) {
+	public Checker(int checkId, Address host, Set<Address> badHosts, Set<Address> goodHosts, StyledText consolePrint) {
 		this.checkId = checkId;
 		if(host == null) {
 			throw new NullPointerException();
@@ -31,16 +30,17 @@ public class Checker implements Runnable {
 		this.badHosts = badHosts;
 		this.goodHosts = goodHosts;
 		this.consolePrint = consolePrint;
-		this.threadMail = threadMail;
 	}
 	
 	public synchronized void run() {
 		boolean check = false;
 		while(true) {
+			writeLock.lock();
 			Console.checkLog(consolePrint);
+			writeLock.unlock();
 			try {
 				InetAddress Address = InetAddress.getByName(host.getHost());
-				check = Address.isReachable(5000);
+				check = Address.isReachable(1000);
 				// Attenzione questo metodo provera' a stabilire una connesione di tipo TCP
 				// Sulla porta 7 (Echo port)
 				if(check) { // Prima verifica
@@ -59,7 +59,7 @@ public class Checker implements Runnable {
 					}
 				}else { // Se la prima verifica dovesse fallire
 					InetAddress a1 = InetAddress.getByName(host.getHost());
-					check = a1.isReachable(5000);
+					check = a1.isReachable(1000);
 					if(check) { // Seconda verifica
 						host.setStatus(true);
 						host.setTypeErr(3);
@@ -76,7 +76,7 @@ public class Checker implements Runnable {
 						}
 					}else { // Se la seconda verifica dovesse fallire
 						InetAddress a2 = InetAddress.getByName(host.getHost());
-						check = a2.isReachable(5000);
+						check = a2.isReachable(1000);
 						if(check) { // Terza verifica
 							host.setStatus(true);
 							host.setTypeErr(3);
@@ -93,7 +93,7 @@ public class Checker implements Runnable {
 							}
 						}else { // Se la terza verifica dovesse fallire
 							InetAddress a3 = InetAddress.getByName(host.getHost());
-							check = a3.isReachable(5000);
+							check = a3.isReachable(1000);
 							if(check) { // Quarta verifica
 								host.setStatus(true);
 								host.setTypeErr(3);
@@ -110,7 +110,7 @@ public class Checker implements Runnable {
 								}
 							} else {
 								InetAddress a4 = InetAddress.getByName(host.getHost());
-								check = a4.isReachable(5000);
+								check = a4.isReachable(1000);
 								if(check) { // Quinta verifica
 									host.setStatus(true);
 									host.setTypeErr(3);
@@ -162,7 +162,22 @@ public class Checker implements Runnable {
 					//System.out.println("Errore di connessione (Time out!) (" + host.getHost() + "), ho gi� notificato!");
 				}
 			}
-			sleep(timeSleep);
+			//sleep(timeSleep);
+			//Console.writeLog("Mi sto addormentando " + Thread.currentThread().getName() + "\n");
+			try {
+				synchronized (Console.mutex) {
+					while(!Mail.finished) {
+						Console.writeLog("Mi sto addormentando " + Thread.currentThread().getName() + "\n");
+						Console.mutex.wait();
+						//this.wait();
+					}
+				}
+				//this.wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Console.writeLog("Mi sto svegliando " + Thread.currentThread().getName() + "\n");
 			/*
 			if(Console.generalStatusBad || Console.generalStatusGood) {
 				

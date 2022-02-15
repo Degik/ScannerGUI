@@ -10,21 +10,28 @@ public class Mail implements Runnable {
 	private String username;
 	private String password;
 	private StyledText consolePrint;
+	public static boolean finished = false;
 	private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 	private Lock writeLock = lock.writeLock();
+	private ReentrantLock generalLock = new ReentrantLock();
+	private ArrayList<Thread> threadList;
 	
-	public Mail(Set<Address> goodHosts, Set<Address> badHosts, String destinatario, String username, String password, StyledText consolePrint) {
+	public Mail(Set<Address> goodHosts, Set<Address> badHosts, String destinatario, String username, String password, StyledText consolePrint, ArrayList<Thread> threadList) {
 		this.goodHosts = goodHosts;
 		this.badHosts = badHosts;
 		this.destinatario = destinatario;
 		this.username = username;
 		this.password = password;
 		this.consolePrint = consolePrint;
+		this.threadList = threadList;
 	}
 	
 	@Override
 	public synchronized void run() {
+		sleep(1);
 		while(true) {
+			Console.writeLog("Sto impostando false\n");
+			finished = false;
 			String subjectGood = "";
 			String messaggioGood = "";
 			if(Console.generalStatusGood) {
@@ -65,11 +72,12 @@ public class Mail implements Runnable {
 				if(badHosts == null) {
 					throw new NullPointerException();
 				}
-				format = format + "//////////////////////////////////////////////////////////////////////////////////////////////////\n";
+				format = format + "/////////////////////////////////////////////////////////////////////////////////////////////\n";
+				
 				for(Address h : badHosts) {
-					format = format + "/// " + h + " ///\n"; 
+					format = format + "/// " + h + "\n"; 
 				}
-				format = format + "/////////////////////////////////////////////////////////////////////////////////////////////////\n";
+				format = format + "////////////////////////////////////////////////////////////////////////////////////////////\n";
 				Console.writeConsole(consolePrint, format);
 				Console.writeLog(format);
 				if(badHosts.size() > 1) {
@@ -95,7 +103,13 @@ public class Mail implements Runnable {
 				Console.generalStatusBad = false;
 				writeLock.unlock();
 			}
-			sleep(3);
+			Console.writeLog("Sto svegliando i thread\n");
+			//sleep(5);
+			synchronized (Console.mutex) {
+				Console.mutex.notifyAll();
+			}
+			finished = true;
+			sleep(1);
 		}
 	}
 	
@@ -108,5 +122,4 @@ public class Mail implements Runnable {
 			}
 		}
 	}
-	
 }

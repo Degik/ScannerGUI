@@ -37,21 +37,19 @@ public class AddHost {
 	private ArrayList<Thread> threadList;
 	private Set<Address> goodHosts;
 	private Set<Address> badHosts;
-	private Thread threadMail;
 	private ReentrantLock lock = new ReentrantLock();
 	
 	public AddHost() {
 		// Vuoto
 	}
 	
-	public AddHost(ArrayList<Address> hosts, StyledText consolePrint, ObjectMapper objectMapper, TableViewer tableViewer, ArrayList<Thread> threadList, Set<Address> goodHosts, Set<Address> badHosts, Thread threadMail) {
+	public AddHost(ArrayList<Address> hosts, StyledText consolePrint, ObjectMapper objectMapper, TableViewer tableViewer, ArrayList<Thread> threadList, Set<Address> goodHosts, Set<Address> badHosts) {
 		this.hosts = hosts;
 		this.consolePrint = consolePrint;
 		this.objectMapper = objectMapper;
 		hostsJson = new File("Backup/hostsJson.json");
 		this.tableViewer = tableViewer;
 		this.threadList = threadList;
-		this.threadMail = threadMail;
 	}
 	
 	/**
@@ -126,7 +124,7 @@ public class AddHost {
 					item.setText(2, host.getHost());
 					item.setText(3, host.statusString());
 					// Creo il checker
-					Checker check = new Checker(host.getAddressId(), host, badHosts, goodHosts, consolePrint, threadMail);
+					Checker check = new Checker(host.getAddressId(), host, badHosts, goodHosts, consolePrint);
 					// Creo il thread
 					Thread th = new Thread(check);
 					// Aggiungo il thread alla lista

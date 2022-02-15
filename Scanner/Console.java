@@ -65,6 +65,7 @@ public class Console {
 	private Table table;
 	private static String logPath = "Logs/" + getDay() + ".txt";
 	private static ArrayList<Thread> threadList;
+	public static Object mutex = new Object();
 	
 	//private Table table;
 	/**
@@ -200,15 +201,19 @@ public class Console {
 			consolePrint.append(dateReturn() + "Errore creazione backup\n");
 		}
 		
+		for(Address h : hosts) {
+			h.setStatus(false);
+		}
+		
 		// Gestisco ed avvio tutti i thread
 		threadList = new ArrayList<>();
 		
-		Mail mail = new Mail(goodHosts, badHosts, user.getSender(), user.getPassword(), user.getRecipient(), consolePrint);
+		Mail mail = new Mail(goodHosts, badHosts, user.getRecipient(), user.getSender(), user.getPassword(), consolePrint, threadList);
 		Thread threadMail = new Thread(mail);
 		threadMail.start();
 		
 		for(Address h : hosts) {
-			Checker check = new Checker(h.getAddressId(), h, badHosts, goodHosts, consolePrint, threadMail);
+			Checker check = new Checker(h.getAddressId(), h, badHosts, goodHosts, consolePrint);
 			Thread th = new Thread(check);
 			threadList.add(th);
 			th.start();
@@ -262,7 +267,7 @@ public class Console {
 		addHost.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				AddHost addHost = new AddHost(hosts, consolePrint, objectMapper, tableViewer, threadList, goodHosts, badHosts, threadMail);
+				AddHost addHost = new AddHost(hosts, consolePrint, objectMapper, tableViewer, threadList, goodHosts, badHosts);
 				addHost.open();
 			}
 		});
@@ -278,6 +283,14 @@ public class Console {
 					th.interrupt();
 				}
 				threadMail.interrupt();
+				for(Address h : hosts) {
+					h.setStatus(false);
+				}
+				try {
+					objectMapper.writeValue(hostsJson, hosts);
+				} catch(IOException e1) {
+					e1.printStackTrace();
+				}
 				sleep(3);
 				shell.close();
 			}
