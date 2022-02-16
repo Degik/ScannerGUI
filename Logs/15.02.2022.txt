@@ -1,0 +1,5 @@
+[15/02/2022 10:15:32] Log avviato (Logs/15.02.2022.txt)
+[15/02/2022 10:15:32] Programma avviato con successo
+[15/02/2022 10:15:32] Impianti caricati con successo
+[15/02/2022 10:15:32] Tabelle caricate con successo
+[15/02/2022 10:15:32] Utente caricato con successo

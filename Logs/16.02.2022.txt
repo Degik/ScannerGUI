@@ -1,0 +1,84 @@
+[16/02/2022 19:22:47] NOTIFY | Programma avviato con successo
+[16/02/2022 19:22:47] NOTIFY | Impianti caricati con successo
+[16/02/2022 19:22:47] NOTIFY | Tabelle caricate con successo
+[16/02/2022 19:22:47] NOTIFY | Utente caricato con successo
+[16/02/2022 19:24:06] NOTIFY | Programma avviato con successo
+[16/02/2022 19:24:06] NOTIFY | Impianti caricati con successo
+[16/02/2022 19:24:06] NOTIFY | Tabelle caricate con successo
+[16/02/2022 19:24:06] NOTIFY | Utente caricato con successo
+[16/02/2022 19:29:13] NOTIFY | Programma avviato con successo
+[16/02/2022 19:29:13] NOTIFY | Impianti caricati con successo
+[16/02/2022 19:29:13] NOTIFY | Tabelle caricate con successo
+[16/02/2022 19:29:13] NOTIFY | Utente caricato con successo
+[16/02/2022 19:30:00] NOTIFY | Programma avviato con successo
+[16/02/2022 19:30:00] NOTIFY | Impianti caricati con successo
+[16/02/2022 19:30:00] NOTIFY | Tabelle caricate con successo
+[16/02/2022 19:30:00] NOTIFY | Utente caricato con successo
+[16/02/2022 19:30:06] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 19:30:46] NOTIFY | Impianto aggiunto con successo {192.168.96.26}{Galacy Note10}
+[16/02/2022 19:31:51] WARNING | Sono stato eliminato Thread-8
+[16/02/2022 19:31:51] WARNING | Sono stato eliminato Thread-8
+[16/02/2022 19:32:56] NOTIFY | Programma avviato con successo
+[16/02/2022 19:32:56] NOTIFY | Impianti caricati con successo
+[16/02/2022 19:32:56] NOTIFY | Tabelle caricate con successo
+[16/02/2022 19:32:56] NOTIFY | Utente caricato con successo
+[16/02/2022 19:33:02] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 19:33:37] NOTIFY | Programma avviato con successo
+[16/02/2022 19:33:37] NOTIFY | Impianti caricati con successo
+[16/02/2022 19:33:37] NOTIFY | Tabelle caricate con successo
+[16/02/2022 19:33:37] NOTIFY | Utente caricato con successo
+[16/02/2022 19:33:43] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 19:34:12] NOTIFY | Impianto aggiunto con successo {192.168.96.26}{Galaxy Note10}
+[16/02/2022 19:39:15] NOTIFY | Programma avviato con successo
+[16/02/2022 19:39:15] NOTIFY | Impianti caricati con successo
+[16/02/2022 19:39:15] NOTIFY | Tabelle caricate con successo
+[16/02/2022 19:39:15] NOTIFY | Utente caricato con successo
+[16/02/2022 19:39:35] NOTIFY | Programma avviato con successo
+[16/02/2022 19:39:35] NOTIFY | Impianti caricati con successo
+[16/02/2022 19:39:35] NOTIFY | Tabelle caricate con successo
+[16/02/2022 19:39:35] NOTIFY | Utente caricato con successo
+[16/02/2022 19:39:41] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 19:46:44] NOTIFY | Programma avviato con successo
+[16/02/2022 19:46:44] NOTIFY | Impianti caricati con successo
+[16/02/2022 19:46:44] NOTIFY | Tabelle caricate con successo
+[16/02/2022 19:46:44] NOTIFY | Utente caricato con successo
+[16/02/2022 19:47:22] NOTIFY | Programma avviato con successo
+[16/02/2022 19:47:22] NOTIFY | Impianti caricati con successo
+[16/02/2022 19:47:22] NOTIFY | Tabelle caricate con successo
+[16/02/2022 19:47:22] NOTIFY | Utente caricato con successo
+[16/02/2022 19:47:27] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 19:50:36] NOTIFY | Programma avviato con successo
+[16/02/2022 19:50:36] NOTIFY | Impianti caricati con successo
+[16/02/2022 19:50:36] NOTIFY | Tabelle caricate con successo
+[16/02/2022 19:50:36] NOTIFY | Utente caricato con successo
+[16/02/2022 19:50:42] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 19:51:56] NOTIFY | Programma avviato con successo
+[16/02/2022 19:51:56] NOTIFY | Impianti caricati con successo
+[16/02/2022 19:51:56] NOTIFY | Tabelle caricate con successo
+[16/02/2022 19:51:56] NOTIFY | Utente caricato con successo
