@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.*;
 
 import org.eclipse.swt.custom.StyledText;
@@ -13,14 +14,13 @@ public class Checker implements Runnable {
 
 	private int checkId;
 	private Address host = null;
-	private final int timeSleep = 6;
 	private Set<Address> badHosts = null;
 	private Set<Address> goodHosts = null;
 	private boolean itWasOffline = false;
 	private static ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 	private Lock writeLock = lock.writeLock();
 	private StyledText consolePrint;
-	
+	private final AtomicBoolean running = new AtomicBoolean(false);
 	public Checker(int checkId, Address host, Set<Address> badHosts, Set<Address> goodHosts, StyledText consolePrint) {
 		this.checkId = checkId;
 		if(host == null) {
@@ -34,6 +34,7 @@ public class Checker implements Runnable {
 	
 	public synchronized void run() {
 		boolean check = false;
+		sleep(1,consolePrint);
 		while(true) {
 			writeLock.lock();
 			Console.checkLog(consolePrint);
@@ -51,7 +52,7 @@ public class Checker implements Runnable {
 						writeLock.lock();
 						goodHosts.add(host);
 						Console.writeConsole(consolePrint, "[" + host.getHost() + "] e' connesso\n");
-						Console.writeLog("[" + host.getHost() + "] e' connesso\n");
+						Console.writeLog("[" + host.getHost() + "] e' connesso\n", 3);
 						if(!Console.generalStatusGood) {
 							Console.generalStatusGood = true;
 						}
@@ -68,7 +69,7 @@ public class Checker implements Runnable {
 							writeLock.lock();
 							goodHosts.add(host);
 							Console.writeConsole(consolePrint, "[" + host.getHost() + "] e' connesso\n");
-							Console.writeLog("[" + host.getHost() + "] e' connesso\n");
+							Console.writeLog("[" + host.getHost() + "] e' connesso\n", 3);
 							if(!Console.generalStatusGood) {
 								Console.generalStatusGood = true;
 							}
@@ -85,7 +86,7 @@ public class Checker implements Runnable {
 								writeLock.lock();
 								goodHosts.add(host);
 								Console.writeConsole(consolePrint, "[" + host.getHost() + "] e' connesso\n");
-								Console.writeLog("[" + host.getHost() + "] e' connesso\n");
+								Console.writeLog("[" + host.getHost() + "] e' connesso\n", 3);
 								if(!Console.generalStatusGood) {
 									Console.generalStatusGood = true;
 								}
@@ -102,7 +103,7 @@ public class Checker implements Runnable {
 									writeLock.lock();
 									goodHosts.add(host);
 									Console.writeConsole(consolePrint, "[" + host.getHost() + "] e' connesso\n");
-									Console.writeLog("[" + host.getHost() + "] e' connesso\n");
+									Console.writeLog("[" + host.getHost() + "] e' connesso\n", 3);
 									if(!Console.generalStatusGood) {
 										Console.generalStatusGood = true;
 									}
@@ -119,7 +120,7 @@ public class Checker implements Runnable {
 										writeLock.lock();
 										goodHosts.add(host);
 										Console.writeConsole(consolePrint, "[" + host.getHost() + "] e' connesso\n");
-										Console.writeLog("[" + host.getHost() + "] e' connesso\n");
+										Console.writeLog("[" + host.getHost() + "] e' connesso\n", 3);
 										if(!Console.generalStatusGood) {
 											Console.generalStatusGood = true;
 										}
@@ -164,29 +165,24 @@ public class Checker implements Runnable {
 			}
 			//sleep(timeSleep);
 			//Console.writeLog("Mi sto addormentando " + Thread.currentThread().getName() + "\n");
+			//boolean sleep = false;
 			try {
 				synchronized (Console.mutex) {
 					while(!Mail.finished) {
-						Console.writeLog("Mi sto addormentando " + Thread.currentThread().getName() + "\n");
+						//Console.writeLog("Mi sto addormentando " + Thread.currentThread().getName() + "\n", 2);
 						Console.mutex.wait();
-						//this.wait();
+						//sleep = true;
 					}
 				}
 				//this.wait();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				Console.writeConsole(consolePrint, "Sono stato eliminato " + Thread.currentThread().getName() + "\n");
+				Console.writeLog("Sono stato eliminato " + Thread.currentThread().getName() + "\n", 2);
 			}
-			Console.writeLog("Mi sto svegliando " + Thread.currentThread().getName() + "\n");
-			/*
-			if(Console.generalStatusBad || Console.generalStatusGood) {
-				
-			}
-			try {
-				threadMail.join();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			/*if(sleep) {
+				Console.writeLog("Mi sto svegliando " + Thread.currentThread().getName() + "\n", 2);
+				Console.writeConsole(consolePrint, "Mi sto svegliando " + Thread.currentThread().getName() + "\n");
 			}*/
 		}
 	}
@@ -195,12 +191,14 @@ public class Checker implements Runnable {
 		return checkId;
 	}
 	
-	public static void sleep(int timeLongMillis) {
+	public static void sleep(int timeLongMillis, StyledText consolePrint) {
 		for(int i = 0; i < timeLongMillis; i++) {
 			try {
 				Thread.sleep(1000);
 			}catch(InterruptedException e) {
 				//
+				Console.writeConsole(consolePrint, "Sono stato eliminato " + Thread.currentThread().getName() + "\n");
+				Console.writeLog("Sono stato eliminato " + Thread.currentThread().getName() + "\n", 2);
 			}
 		}
 	}

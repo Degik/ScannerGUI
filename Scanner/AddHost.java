@@ -50,6 +50,8 @@ public class AddHost {
 		hostsJson = new File("Backup/hostsJson.json");
 		this.tableViewer = tableViewer;
 		this.threadList = threadList;
+		this.badHosts = badHosts;
+		this.goodHosts = goodHosts;
 	}
 	
 	/**
@@ -115,14 +117,13 @@ public class AddHost {
 						objectMapper.writeValue(hostsJson, hosts);
 					} catch(IOException e1) {
 						consolePrint.append(Console.dateReturn() + "Errore aggiornamento backup\n");
-						Console.writeLog("Errore aggiornamento backup\n");
+						Console.writeLog("Errore aggiornamento backup\n", 1);
 					}
 					Table table = tableViewer.getTable();
 					TableItem item = new TableItem(table, SWT.NONE);
 					item.setText(0, Integer.toString(host.getAddressId()));
 					item.setText(1, host.getName());
 					item.setText(2, host.getHost());
-					item.setText(3, host.statusString());
 					// Creo il checker
 					Checker check = new Checker(host.getAddressId(), host, badHosts, goodHosts, consolePrint);
 					// Creo il thread
@@ -132,7 +133,7 @@ public class AddHost {
 					// Avvio il thread
 					th.start();
 					consolePrint.append(Console.dateReturn() + "Impianto aggiunto con successo {" + textHost.getText() + "} {" + textAddress.getText() + "}");
-					Console.writeLog("Impianto aggiunto con successo {" + textHost.getText() + "}" + "{" + textAddress.getText() + "}\n");
+					Console.writeLog("Impianto aggiunto con successo {" + textHost.getText() + "}" + "{" + textAddress.getText() + "}\n", 3);
 					lock.unlock();
 					MessageDialog.openConfirm(Display.getDefault().getActiveShell(), "Successo", "Impianto aggiunto");
 					shell.close();

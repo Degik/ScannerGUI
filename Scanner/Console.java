@@ -24,17 +24,22 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Logger;
 
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.operation.IThreadListener;
 import org.eclipse.jface.text.TextViewer;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
@@ -125,16 +130,7 @@ public class Console {
 		shell.setSize(974, 482);
 		shell.setText("Scanner (Menu)");
 		
-		Button rmvHost = new Button(shell, SWT.NONE);
-		rmvHost.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-			}
-		});
-		rmvHost.setText("Rimuovi");
-		rmvHost.setBounds(194, 408, 100, 33);
-		
-		TextViewer textViewer = new TextViewer(shell, SWT.BORDER);
+		TextViewer textViewer = new TextViewer(shell, SWT.BORDER | SWT.V_SCROLL | SWT.WRAP);
 		StyledText consolePrint = textViewer.getTextWidget();
 		consolePrint.setEditable(false);
 		consolePrint.setTouchEnabled(true);
@@ -145,10 +141,10 @@ public class Console {
 			// Prendo i dati
 			Properties prop = new Properties();
 			try {
-				FileInputStream input = new FileInputStream("C:\\Users\\Davide Bulotta\\eclipse-workspace\\ScannerGUI\\src\\UserSetting.properties");
+				FileInputStream input = new FileInputStream("/Users/davidebulotta/eclipse-workspace/Scanner GUI/src/UserSetting.properties");
 				prop.load(input);
 			} catch (FileNotFoundException e) {
-				e.printStackTrace();
+				consolePrint.append(dateReturn() + "Non ho trovato il file UserSetting.properties\n");
 			} catch (IOException e) {
 				System.err.println("IOException");
 				e.printStackTrace();
@@ -163,7 +159,7 @@ public class Console {
 			
 			// Recupero le informazioni host
 			ArrayList<String> inputSettings = new ArrayList<>();
-			try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Davide Bulotta\\eclipse-workspace\\ScannerGUI\\src\\config.txt"))) {
+			try (BufferedReader br = new BufferedReader(new FileReader("/Users/davidebulotta/eclipse-workspace/Scanner GUI/src/config.txt"))) {
 				String line;
 				while((line = br.readLine()) != null) {
 					inputSettings.add(line);
@@ -224,7 +220,7 @@ public class Console {
 		lblListaImpianti.setText("LISTA IMPIANTI");
 		
 		Label lblNewLabel = new Label(shell, SWT.NONE);
-		lblNewLabel.setBounds(10, 10, 55, 15);
+		lblNewLabel.setBounds(10, 10, 58, 15);
 		lblNewLabel.setText("CONSOLE");
 		
 		TableViewer tableViewer = new TableViewer(shell, SWT.BORDER | SWT.FULL_SELECTION);
@@ -253,13 +249,38 @@ public class Console {
 			item.setText(0, Integer.toString(address.getAddressId()));
 			item.setText(1, address.getName());
 			item.setText(2, address.getHost());
-			item.setText(3, address.statusString());
+			if(address.getStatus()) {
+				FileInputStream iconGreen = null;
+				try {
+					iconGreen = new FileInputStream("/Users/davidebulotta/eclipse-workspace/Scanner GUI/icons/online.png");
+				} catch (FileNotFoundException e1) {
+					writeConsole(consolePrint, "Icona online.png non trovata");
+					writeLog("Icona online.png non trovata! cercare nella cartella icons", 1);
+					e1.printStackTrace();
+				}
+				Image statusIconOnline = new Image(Display.getDefault(), iconGreen);
+				//statusIconOnline.getImageData();
+				item.setImage(statusIconOnline);
+			} else {
+				FileInputStream iconRed = null;
+				try {
+					iconRed = new FileInputStream("/Users/davidebulotta/eclipse-workspace/Scanner GUI/icons/offline.png");
+				} catch (FileNotFoundException e1) {
+					writeConsole(consolePrint, "Icona offline.png non trovata");
+					writeLog("Icona offline.png non trovata! cercare nella cartella icons", 1);
+					e1.printStackTrace();
+				}
+				Image statusIconOnline = new Image(Display.getDefault(), iconRed);
+				//statusIconOnline.getImageData();
+				item.setImage(3, statusIconOnline);
+			}
+			//item.setText(3, address.statusString());
 		}
 		for(int i = 0; i < columnsV.length; i++) {
 			columnsV[i].pack();
 		}
 		
-		UpdateTable updateTable = new UpdateTable(tableViewer, columnsV, hosts, Display.getDefault()); // Creo l'oggetto per gestire i dati
+		UpdateTable updateTable = new UpdateTable(tableViewer, columnsV, hosts, Display.getDefault(), consolePrint); // Creo l'oggetto per gestire i dati
 		Thread tableThread = new Thread(updateTable); // Creo il thread
 		tableThread.start();
 		
@@ -274,15 +295,47 @@ public class Console {
 		addHost.setBounds(10, 408, 100, 33);
 		addHost.setText("Aggiungi");
 		
+		Button rmvHost = new Button(shell, SWT.NONE);
+		rmvHost.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				// Delete from table
+				int pos = table.getSelectionIndex();
+				boolean check = MessageDialog.openQuestion(shell, "Avviso", "Sei sicuro di voler cancellare questo impianto?");
+				if(check) {
+					// Prendo la mutua esclusione
+					lock.lock();
+					// Rimuovo l'elemento selezionato dalla lista hosts
+					hosts.remove(pos);
+					// Ricavo il thread riferimento
+					Thread th = threadList.get(pos);
+					// Lo cancello dalla lista thread
+					threadList.remove(pos);
+					// Avvio lo stop del thread
+					th.interrupt();
+					// Verifico lo stato del thread
+					if(!th.isInterrupted()) {
+						th.interrupt();
+					}
+					// Aggiorno la tabella a pieno
+					table.remove(pos);
+					consolePrint.append(dateReturn() + "Impianto cancellato\n");
+					lock.unlock();
+				}
+			}
+		});
+		rmvHost.setText("Rimuovi");
+		rmvHost.setBounds(194, 408, 100, 33);
+		
 		Button exit = new Button(shell, SWT.NONE);
 		exit.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				consolePrint.append(dateReturn() + "Sto terminando i thread");
 				for(Thread th : threadList) {
-					th.interrupt();
+					th.stop();
 				}
-				threadMail.interrupt();
+				threadMail.stop();
 				for(Address h : hosts) {
 					h.setStatus(false);
 				}
@@ -298,10 +351,10 @@ public class Console {
 		exit.setText("Esci");
 		exit.setBounds(848, 408, 100, 33);
 		
-		writeLog("Programma avviato con successo\n");
-		writeLog("Impianti caricati con successo\n");
-		writeLog("Tabelle caricate con successo\n");
-		writeLog("Utente caricato con successo\n");
+		writeLog("Programma avviato con successo\n", 3);
+		writeLog("Impianti caricati con successo\n", 3);
+		writeLog("Tabelle caricate con successo\n", 3);
+		writeLog("Utente caricato con successo\n", 3);
 	}
 	
 	private boolean manageBackup(StyledText consolePrint) {
@@ -390,7 +443,7 @@ public class Console {
 			try {
 				dayLog.createNewFile();
 				consolePrint.append(dateReturn() + "File log\n");
-				writeLog("Log avviato (" + logPath + ")\n");
+				writeLog("Log avviato (" + logPath + ")\n", 3);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -442,10 +495,22 @@ public class Console {
 		return dateStr;
 	}
 	
-	public synchronized static void writeLog(String text) {
+	public synchronized static void writeLog(String text, int errorType) {
+		String typeMsg = null;
+		switch(errorType) {
+		case 1:
+			typeMsg = "ERROR";
+			break;
+		case 2:
+			typeMsg = "WARNING";
+			break;
+		case 3:
+			typeMsg = "NOTIFY";
+			break;
+		}
 		try {
 			FileWriter writeLog = new FileWriter(logPath, true);
-			writeLog.write(dateReturn() + text);
+			writeLog.write(dateReturn() + typeMsg + " | " + text);
 			writeLog.close();
 		} catch(IOException e) {
 			e.printStackTrace();
@@ -456,6 +521,11 @@ public class Console {
 		Display.getDefault().asyncExec(new Runnable() {
 			public void run() {
 				consolePrint.append(dateReturn() + text);
+				consolePrint.addListener(SWT.Modify, new Listener() {
+					public void handleEvent(Event e) {
+						consolePrint.setTopIndex(consolePrint.getLineCount() - 1);
+					}
+				});
 			}
 		});
 	}

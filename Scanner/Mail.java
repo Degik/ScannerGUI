@@ -28,9 +28,9 @@ public class Mail implements Runnable {
 	
 	@Override
 	public synchronized void run() {
-		sleep(1);
+		//sleep(1);
 		while(true) {
-			Console.writeLog("Sto impostando false\n");
+			//Console.writeLog("Sto impostando false\n", 2);
 			finished = false;
 			String subjectGood = "";
 			String messaggioGood = "";
@@ -79,7 +79,7 @@ public class Mail implements Runnable {
 				}
 				format = format + "////////////////////////////////////////////////////////////////////////////////////////////\n";
 				Console.writeConsole(consolePrint, format);
-				Console.writeLog(format);
+				Console.writeLog(format, 3);
 				if(badHosts.size() > 1) {
 					subjectBad = "Alcuni dei tuoi impianti sono offline ";
 					messaggioBad = "Attenzione questi impianti risultano offline : \n";
@@ -103,13 +103,13 @@ public class Mail implements Runnable {
 				Console.generalStatusBad = false;
 				writeLock.unlock();
 			}
-			Console.writeLog("Sto svegliando i thread\n");
+			//Console.writeLog("Sto svegliando i thread\n", 2);
 			//sleep(5);
 			synchronized (Console.mutex) {
 				Console.mutex.notifyAll();
+				finished = true;
 			}
-			finished = true;
-			sleep(1);
+			//sleep(1);
 		}
 	}
 	
