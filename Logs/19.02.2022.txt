@@ -1,0 +1,112 @@
+[19/02/2022 15:08:16] NOTIFY | Impianti caricati con successo
+[19/02/2022 15:08:16] NOTIFY | Tabelle caricate con successo
+[19/02/2022 15:08:17] NOTIFY | Programma avviato con successo
+[19/02/2022 15:08:23] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Test 1  192.168.1.46 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+/// [Test 2  192.168.1.124 Id: 11  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Modem  192.168.0.1 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Tv Giovanni  192.168.1.75 Id: 9  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[19/02/2022 15:08:36] NOTIFY | Impianto aggiunto con successo {192.168.1.125}{Test 3}
+[19/02/2022 15:08:42] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Test 3  192.168.1.125 Id: 12  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[19/02/2022 15:08:51] NOTIFY | Checker terminati
+[19/02/2022 15:08:51] NOTIFY | Mail terminato
+[19/02/2022 15:08:51] NOTIFY | UpdateTable terminato
+[19/02/2022 15:08:51] NOTIFY | Programma terminato
+[19/02/2022 15:09:00] NOTIFY | Impianti caricati con successo
+[19/02/2022 15:09:00] NOTIFY | Tabelle caricate con successo
+[19/02/2022 15:09:00] NOTIFY | Programma avviato con successo
+[19/02/2022 15:09:07] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Test 1  192.168.1.46 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Tv Giovanni  192.168.1.75 Id: 9  OFFLINE  Errore: Connessione non riuscita]
+/// [Test 3  192.168.1.125 Id: 12  OFFLINE  Errore: Connessione non riuscita]
+/// [Test 2  192.168.1.124 Id: 11  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Modem  192.168.0.1 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[19/02/2022 15:09:36] NOTIFY | Impianto aggiunto con successo {192.168.1.126}{Test 4}
+[19/02/2022 15:09:42] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Test 4  192.168.1.126 Id: 13  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[19/02/2022 15:09:56] NOTIFY | Checker terminati
+[19/02/2022 15:09:56] NOTIFY | Mail terminato
+[19/02/2022 15:09:56] NOTIFY | UpdateTable terminato
+[19/02/2022 15:09:56] NOTIFY | Programma terminato
+[19/02/2022 15:10:10] NOTIFY | Impianti caricati con successo
+[19/02/2022 15:10:10] NOTIFY | Tabelle caricate con successo
+[19/02/2022 15:10:10] NOTIFY | Programma avviato con successo
+[19/02/2022 15:10:17] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Test 4  192.168.1.126 Id: 13  OFFLINE  Errore: Connessione non riuscita]
+/// [Test 3  192.168.1.125 Id: 12  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+/// [Test 2  192.168.1.124 Id: 11  OFFLINE  Errore: Connessione non riuscita]
+/// [Test 1  192.168.1.46 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+/// [Tv Giovanni  192.168.1.75 Id: 9  OFFLINE  Errore: Connessione non riuscita]
+/// [Modem  192.168.0.1 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[19/02/2022 15:10:31] NOTIFY | Impianto aggiunto con successo {192.168.1.127}{Test 5}
+[19/02/2022 15:10:37] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Test 5  192.168.1.127 Id: 12  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[19/02/2022 15:10:42] NOTIFY | Checker terminati
+[19/02/2022 15:10:42] NOTIFY | Mail terminato
+[19/02/2022 15:10:42] NOTIFY | UpdateTable terminato
+[19/02/2022 15:10:42] NOTIFY | Programma terminato
+[19/02/2022 15:15:06] NOTIFY | Impianti caricati con successo
+[19/02/2022 15:15:06] NOTIFY | Tabelle caricate con successo
+[19/02/2022 15:15:06] NOTIFY | Programma avviato con successo
+[19/02/2022 15:15:13] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Test 4  192.168.1.126 Id: 13  OFFLINE  Errore: Connessione non riuscita]
+/// [Test 2  192.168.1.124 Id: 11  OFFLINE  Errore: Connessione non riuscita]
+/// [Tv Giovanni  192.168.1.75 Id: 9  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Modem  192.168.0.1 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Test 3  192.168.1.125 Id: 12  OFFLINE  Errore: Connessione non riuscita]
+/// [Test 1  192.168.1.46 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[19/02/2022 15:15:28] NOTIFY | Impianto aggiunto con successo {192.168.1.127}{Test 5}
+[19/02/2022 15:15:34] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Test 5  192.168.1.127 Id: 14  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[19/02/2022 15:15:41] NOTIFY | Checker terminati
+[19/02/2022 15:15:41] NOTIFY | Mail terminato
+[19/02/2022 15:15:41] NOTIFY | UpdateTable terminato
+[19/02/2022 15:15:41] NOTIFY | Programma terminato
+[19/02/2022 15:18:29] NOTIFY | Impianti caricati con successo
+[19/02/2022 15:18:29] NOTIFY | Tabelle caricate con successo
+[19/02/2022 15:18:29] NOTIFY | Programma avviato con successo
+[19/02/2022 15:18:36] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Test 5  192.168.1.127 Id: 14  OFFLINE  Errore: Connessione non riuscita]
+/// [Tv Giovanni  192.168.1.75 Id: 9  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Test 3  192.168.1.125 Id: 12  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+/// [Test 2  192.168.1.124 Id: 11  OFFLINE  Errore: Connessione non riuscita]
+/// [Test 4  192.168.1.126 Id: 13  OFFLINE  Errore: Connessione non riuscita]
+/// [Modem  192.168.0.1 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Test 1  192.168.1.46 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[19/02/2022 15:18:39] NOTIFY | Checker terminati
+[19/02/2022 15:18:39] NOTIFY | Mail terminato
+[19/02/2022 15:18:39] NOTIFY | UpdateTable terminato
+[19/02/2022 15:18:39] NOTIFY | Programma terminato

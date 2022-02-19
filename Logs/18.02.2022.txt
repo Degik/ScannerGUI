@@ -1,0 +1,597 @@
+[18/02/2022 13:26:58] NOTIFY | Impianti caricati con successo
+[18/02/2022 13:26:59] NOTIFY | Tabelle caricate con successo
+[18/02/2022 13:26:59] NOTIFY | Programma avviato con successo
+[18/02/2022 13:27:04] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 13:27:14] NOTIFY | Checker terminati
+[18/02/2022 13:27:14] NOTIFY | Mail terminato
+[18/02/2022 13:27:14] NOTIFY | UpdateTable terminato
+[18/02/2022 13:27:14] NOTIFY | Programma terminato
+[18/02/2022 13:31:05] NOTIFY | Impianti caricati con successo
+[18/02/2022 13:31:05] NOTIFY | Tabelle caricate con successo
+[18/02/2022 13:31:05] NOTIFY | Programma avviato con successo
+[18/02/2022 13:31:11] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 13:31:22] NOTIFY | Checker terminati
+[18/02/2022 13:31:22] NOTIFY | Mail terminato
+[18/02/2022 13:31:22] NOTIFY | UpdateTable terminato
+[18/02/2022 13:31:22] NOTIFY | Programma terminato
+[18/02/2022 13:31:41] NOTIFY | Impianti caricati con successo
+[18/02/2022 13:31:41] NOTIFY | Tabelle caricate con successo
+[18/02/2022 13:31:41] NOTIFY | Programma avviato con successo
+[18/02/2022 13:31:47] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 13:37:19] NOTIFY | Impianti caricati con successo
+[18/02/2022 13:37:19] NOTIFY | Tabelle caricate con successo
+[18/02/2022 13:37:19] NOTIFY | Programma avviato con successo
+[18/02/2022 13:37:53] NOTIFY | Impianti caricati con successo
+[18/02/2022 13:37:53] NOTIFY | Tabelle caricate con successo
+[18/02/2022 13:37:53] NOTIFY | Programma avviato con successo
+[18/02/2022 16:09:48] NOTIFY | Impianti caricati con successo
+[18/02/2022 16:09:48] NOTIFY | Tabelle caricate con successo
+[18/02/2022 16:09:48] NOTIFY | Programma avviato con successo
+[18/02/2022 16:09:58] NOTIFY | Checker terminati
+[18/02/2022 16:09:58] NOTIFY | Mail terminato
+[18/02/2022 16:09:58] NOTIFY | UpdateTable terminato
+[18/02/2022 16:09:58] NOTIFY | Programma terminato
+[18/02/2022 16:14:26] NOTIFY | Impianti caricati con successo
+[18/02/2022 16:14:26] NOTIFY | Tabelle caricate con successo
+[18/02/2022 16:14:26] NOTIFY | Programma avviato con successo
+[18/02/2022 16:14:28] NOTIFY | Checker terminati
+[18/02/2022 16:14:28] NOTIFY | Mail terminato
+[18/02/2022 16:14:28] NOTIFY | UpdateTable terminato
+[18/02/2022 16:14:28] NOTIFY | Programma terminato
+[18/02/2022 16:14:40] NOTIFY | Impianti caricati con successo
+[18/02/2022 16:14:40] NOTIFY | Tabelle caricate con successo
+[18/02/2022 16:14:40] NOTIFY | Programma avviato con successo
+[18/02/2022 16:14:46] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 16:17:27] NOTIFY | Impianti caricati con successo
+[18/02/2022 16:17:28] NOTIFY | Tabelle caricate con successo
+[18/02/2022 16:17:28] NOTIFY | Programma avviato con successo
+[18/02/2022 16:17:33] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 16:31:55] NOTIFY | Impianti caricati con successo
+[18/02/2022 16:31:55] NOTIFY | Tabelle caricate con successo
+[18/02/2022 16:31:55] NOTIFY | Programma avviato con successo
+[18/02/2022 17:01:30] NOTIFY | Impianti caricati con successo
+[18/02/2022 17:01:30] NOTIFY | Tabelle caricate con successo
+[18/02/2022 17:01:30] NOTIFY | Programma avviato con successo
+[18/02/2022 17:08:40] NOTIFY | Impianti caricati con successo
+[18/02/2022 17:08:40] NOTIFY | Tabelle caricate con successo
+[18/02/2022 17:08:40] NOTIFY | Programma avviato con successo
+[18/02/2022 17:08:47] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 17:13:36] NOTIFY | Checker terminati
+[18/02/2022 17:13:36] NOTIFY | Mail terminato
+[18/02/2022 17:13:36] NOTIFY | UpdateTable terminato
+[18/02/2022 17:13:36] NOTIFY | Programma terminato
+[18/02/2022 17:14:18] NOTIFY | Impianti caricati con successo
+[18/02/2022 17:14:18] NOTIFY | Tabelle caricate con successo
+[18/02/2022 17:14:18] NOTIFY | Programma avviato con successo
+[18/02/2022 17:14:23] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 17:15:28] NOTIFY | Impianti caricati con successo
+[18/02/2022 17:15:29] NOTIFY | Tabelle caricate con successo
+[18/02/2022 17:15:29] NOTIFY | Programma avviato con successo
+[18/02/2022 17:15:34] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 17:34:52] NOTIFY | Impianti caricati con successo
+[18/02/2022 17:34:52] NOTIFY | Tabelle caricate con successo
+[18/02/2022 17:34:52] NOTIFY | Programma avviato con successo
+[18/02/2022 17:34:58] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 17:35:14] NOTIFY | Checker terminati
+[18/02/2022 17:35:14] NOTIFY | Mail terminato
+[18/02/2022 17:35:14] NOTIFY | UpdateTable terminato
+[18/02/2022 17:35:14] NOTIFY | Programma terminato
+[18/02/2022 17:35:37] NOTIFY | Impianti caricati con successo
+[18/02/2022 17:35:37] NOTIFY | Tabelle caricate con successo
+[18/02/2022 17:35:37] NOTIFY | Programma avviato con successo
+[18/02/2022 17:35:43] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 17:36:09] NOTIFY | Checker terminati
+[18/02/2022 17:36:09] NOTIFY | Mail terminato
+[18/02/2022 17:36:09] NOTIFY | UpdateTable terminato
+[18/02/2022 17:36:09] NOTIFY | Programma terminato
+[18/02/2022 17:36:33] NOTIFY | Impianti caricati con successo
+[18/02/2022 17:36:33] NOTIFY | Tabelle caricate con successo
+[18/02/2022 17:36:33] NOTIFY | Programma avviato con successo
+[18/02/2022 17:36:40] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 17:36:45] NOTIFY | Checker terminati
+[18/02/2022 17:36:45] NOTIFY | Mail terminato
+[18/02/2022 17:36:45] NOTIFY | UpdateTable terminato
+[18/02/2022 17:36:45] NOTIFY | Programma terminato
+[18/02/2022 17:37:22] NOTIFY | Impianti caricati con successo
+[18/02/2022 17:37:22] NOTIFY | Tabelle caricate con successo
+[18/02/2022 17:37:22] NOTIFY | Programma avviato con successo
+[18/02/2022 17:37:29] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 17:52:57] NOTIFY | Impianti caricati con successo
+[18/02/2022 17:52:57] NOTIFY | Tabelle caricate con successo
+[18/02/2022 17:52:57] NOTIFY | Programma avviato con successo
+[18/02/2022 17:53:04] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 17:53:05] ERROR | Errore di connessione con il server mail
+[18/02/2022 17:57:53] NOTIFY | Impianti caricati con successo
+[18/02/2022 17:57:53] NOTIFY | Tabelle caricate con successo
+[18/02/2022 17:57:53] NOTIFY | Programma avviato con successo
+[18/02/2022 17:58:00] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 17:58:01] ERROR | Errore di connessione con il server mail
+[18/02/2022 17:59:28] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 17:59:28] ERROR | Errore di connessione con il server mail
+[18/02/2022 17:59:32] NOTIFY | [10.0.0.15] e' connesso
+[18/02/2022 17:59:32] ERROR | Errore di connessione con il server mail
+[18/02/2022 18:02:57] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 18:02:57] ERROR | Errore di connessione con il server mail
+[18/02/2022 18:03:18] NOTIFY | [10.0.0.15] e' connesso
+[18/02/2022 18:03:18] ERROR | Errore di connessione con il server mail
+[18/02/2022 18:04:09] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 18:04:22] ERROR | Errore di connessione con il server mail
+[18/02/2022 18:04:22] NOTIFY | [10.0.0.15] e' connesso
+[18/02/2022 18:04:22] ERROR | Errore di connessione con il server mail
+[18/02/2022 18:06:04] NOTIFY | Impianto aggiunto con successo {192.168.0.1}{Modem}
+[18/02/2022 18:06:10] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Modem  192.168.0.1 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 18:06:11] ERROR | Errore di connessione con il server mail
+[18/02/2022 18:21:37] NOTIFY | Impianto aggiunto con successo {192.168.1.179}{Galaxy Note10 Lite}
+[18/02/2022 18:21:43] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Galaxy Note10 Lite  192.168.1.179 Id: 9  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 18:21:44] ERROR | Errore di connessione con il server mail
+[18/02/2022 18:23:18] NOTIFY | [192.168.1.179] e' connesso
+[18/02/2022 18:23:18] ERROR | Errore di connessione con il server mail
+[18/02/2022 18:25:40] NOTIFY | Impianto aggiunto con successo {192.168.1.107}{Air di Giovanni}
+[18/02/2022 18:51:46] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Air di Giovanni  192.168.1.107 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 18:51:47] ERROR | Errore di connessione con il server mail
+[18/02/2022 19:07:07] NOTIFY | [192.168.1.107] e' connesso
+[18/02/2022 19:07:07] ERROR | Errore di connessione con il server mail
+[18/02/2022 19:07:34] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Air di Giovanni  192.168.1.107 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 19:07:35] ERROR | Errore di connessione con il server mail
+[18/02/2022 19:22:29] NOTIFY | [192.168.1.107] e' connesso
+[18/02/2022 19:22:30] ERROR | Errore di connessione con il server mail
+[18/02/2022 19:22:39] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Air di Giovanni  192.168.1.107 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 19:22:39] ERROR | Errore di connessione con il server mail
+[18/02/2022 19:38:42] NOTIFY | [192.168.1.107] e' connesso
+[18/02/2022 19:38:42] ERROR | Errore di connessione con il server mail
+[18/02/2022 19:38:52] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Air di Giovanni  192.168.1.107 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 19:38:52] ERROR | Errore di connessione con il server mail
+[18/02/2022 19:43:02] NOTIFY | Impianti caricati con successo
+[18/02/2022 19:43:03] NOTIFY | Tabelle caricate con successo
+[18/02/2022 19:43:03] NOTIFY | Programma avviato con successo
+[18/02/2022 19:43:09] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Air di Giovanni  192.168.1.107 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Modem  192.168.0.1 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 19:45:15] NOTIFY | Impianto aggiunto con successo {192.168.1.94}{Iphone 13 Pro}
+[18/02/2022 19:50:08] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Iphone 13 Pro  192.168.1.94 Id: 11  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 19:50:27] NOTIFY | [192.168.1.94] e' connesso
+[18/02/2022 19:50:34] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Iphone 13 Pro  192.168.1.94 Id: 11  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 19:50:36] NOTIFY | [192.168.1.94] e' connesso
+[18/02/2022 19:50:49] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Iphone 13 Pro  192.168.1.94 Id: 11  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 19:53:25] NOTIFY | [192.168.1.94] e' connesso
+[18/02/2022 19:55:25] NOTIFY | Checker terminati
+[18/02/2022 19:55:25] NOTIFY | Mail terminato
+[18/02/2022 19:55:25] NOTIFY | UpdateTable terminato
+[18/02/2022 19:55:25] NOTIFY | Programma terminato
+[18/02/2022 19:56:06] NOTIFY | Impianti caricati con successo
+[18/02/2022 19:56:06] NOTIFY | Tabelle caricate con successo
+[18/02/2022 19:56:06] NOTIFY | Programma avviato con successo
+[18/02/2022 19:56:13] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Air di Giovanni  192.168.1.107 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Modem  192.168.0.1 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 19:56:44] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Iphone 13 Pro  192.168.1.94 Id: 11  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 19:57:16] NOTIFY | Checker terminati
+[18/02/2022 19:57:16] NOTIFY | Mail terminato
+[18/02/2022 19:57:16] NOTIFY | UpdateTable terminato
+[18/02/2022 19:57:16] NOTIFY | Programma terminato
+[18/02/2022 20:02:45] NOTIFY | Impianti caricati con successo
+[18/02/2022 20:02:45] NOTIFY | Tabelle caricate con successo
+[18/02/2022 20:02:45] NOTIFY | Programma avviato con successo
+[18/02/2022 20:02:49] NOTIFY | Checker terminati
+[18/02/2022 20:02:49] NOTIFY | Mail terminato
+[18/02/2022 20:02:49] NOTIFY | UpdateTable terminato
+[18/02/2022 20:02:49] NOTIFY | Programma terminato
+[18/02/2022 20:03:39] NOTIFY | Impianti caricati con successo
+[18/02/2022 20:03:39] NOTIFY | Tabelle caricate con successo
+[18/02/2022 20:03:39] NOTIFY | Programma avviato con successo
+[18/02/2022 20:03:46] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Air di Giovanni  192.168.1.107 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+/// [Modem  192.168.0.1 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 20:03:58] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Iphone 13 Pro  192.168.1.94 Id: 11  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 20:04:14] NOTIFY | Iphone 13 Pro connesso
+[18/02/2022 20:04:22] NOTIFY | Checker terminati
+[18/02/2022 20:04:22] NOTIFY | Mail terminato
+[18/02/2022 20:04:22] NOTIFY | UpdateTable terminato
+[18/02/2022 20:04:22] NOTIFY | Programma terminato
+[18/02/2022 20:05:57] NOTIFY | Impianti caricati con successo
+[18/02/2022 20:05:57] NOTIFY | Tabelle caricate con successo
+[18/02/2022 20:05:57] NOTIFY | Programma avviato con successo
+[18/02/2022 20:06:04] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Modem  192.168.0.1 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Air di Giovanni  192.168.1.107 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 20:06:12] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Iphone 13 Pro  192.168.1.94 Id: 11  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10 Lite  192.168.1.179 Id: 9  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 20:06:12] ERROR | Errore di connessione con il server mail
+[18/02/2022 20:06:17] NOTIFY | Primo nodo connesso
+[18/02/2022 20:06:18] NOTIFY | Iphone 13 Pro connesso
+[18/02/2022 20:06:20] NOTIFY | Galaxy Note10 Lite connesso
+[18/02/2022 20:06:27] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Galaxy Note10 Lite  192.168.1.179 Id: 9  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 20:06:27] ERROR | Errore di connessione con il server mail
+[18/02/2022 20:06:27] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Iphone 13 Pro  192.168.1.94 Id: 11  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 20:06:27] ERROR | Errore di connessione con il server mail
+[18/02/2022 20:06:33] NOTIFY | Primo nodo connesso
+[18/02/2022 20:06:33] NOTIFY | Iphone 13 Pro connesso
+[18/02/2022 20:06:35] NOTIFY | Galaxy Note10 Lite connesso
+[18/02/2022 20:09:08] NOTIFY | Checker terminati
+[18/02/2022 20:09:08] NOTIFY | Mail terminato
+[18/02/2022 20:09:08] NOTIFY | UpdateTable terminato
+[18/02/2022 20:09:08] NOTIFY | Programma terminato
+[18/02/2022 20:11:02] NOTIFY | Impianti caricati con successo
+[18/02/2022 20:11:02] NOTIFY | Tabelle caricate con successo
+[18/02/2022 20:11:02] NOTIFY | Programma avviato con successo
+[18/02/2022 20:11:09] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Modem  192.168.0.1 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Air di Giovanni  192.168.1.107 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 20:11:18] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 20:11:19] ERROR | Errore di connessione con il server mail
+[18/02/2022 20:11:19] ERROR | File notConnection.png non trovato! dovrebbe situarsi nella cartella icons
+[18/02/2022 20:11:26] NOTIFY | Primo nodo connesso
+[18/02/2022 20:11:26] NOTIFY | Iphone 13 Pro connesso
+[18/02/2022 20:11:28] NOTIFY | Galaxy Note10 Lite connesso
+[18/02/2022 20:11:54] NOTIFY | Air di Giovanni connesso
+[18/02/2022 20:12:04] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Iphone 13 Pro  192.168.1.94 Id: 11  ONLINE  Errore: Nessuno]
+/// [Air di Giovanni  192.168.1.107 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 20:14:04] NOTIFY | Impianti caricati con successo
+[18/02/2022 20:14:04] NOTIFY | Tabelle caricate con successo
+[18/02/2022 20:14:04] NOTIFY | Programma avviato con successo
+[18/02/2022 20:14:07] NOTIFY | Checker terminati
+[18/02/2022 20:14:07] NOTIFY | Mail terminato
+[18/02/2022 20:14:07] NOTIFY | UpdateTable terminato
+[18/02/2022 20:14:07] NOTIFY | Programma terminato
+[18/02/2022 20:14:11] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Air di Giovanni  192.168.1.107 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Modem  192.168.0.1 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 20:14:31] NOTIFY | Impianti caricati con successo
+[18/02/2022 20:14:31] NOTIFY | Tabelle caricate con successo
+[18/02/2022 20:14:31] NOTIFY | Programma avviato con successo
+[18/02/2022 20:14:38] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Modem  192.168.0.1 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Air di Giovanni  192.168.1.107 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 00:22:39] NOTIFY | Impianti caricati con successo
+[18/02/2022 00:22:39] NOTIFY | Tabelle caricate con successo
+[18/02/2022 00:22:39] NOTIFY | Programma avviato con successo
+[18/02/2022 00:22:46] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Modem  192.168.0.1 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Air di Giovanni  192.168.1.107 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 20:29:11] NOTIFY | Air di Giovanni connesso
+[18/02/2022 20:29:21] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Air di Giovanni  192.168.1.107 Id: 10  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 20:35:16] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Galaxy Note10 Lite  192.168.1.179 Id: 9  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 20:35:16] ERROR | Errore di connessione con il server mail
+[18/02/2022 20:35:17] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 20:35:17] ERROR | Errore di connessione con il server mail
+[18/02/2022 20:35:17] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Iphone 13 Pro  192.168.1.94 Id: 11  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 20:35:17] ERROR | Errore di connessione con il server mail
+[18/02/2022 20:36:11] NOTIFY | Primo nodo connesso
+[18/02/2022 20:36:16] NOTIFY | Iphone 13 Pro connesso
+[18/02/2022 20:36:42] NOTIFY | Galaxy Note10 Lite connesso
+[18/02/2022 21:01:31] NOTIFY | Impianto aggiunto con successo {192.168.1.254}{Modem Fastweb}
+[18/02/2022 21:02:20] NOTIFY | Impianto aggiunto con successo {192.168.1.254}{Modem Fastweb}
+[18/02/2022 21:05:44] NOTIFY | Impianto aggiunto con successo {192.168.1.75}{Tv Giovanni}
+[18/02/2022 21:06:11] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Iphone 13 Pro  192.168.1.94 Id: 11  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 21:06:14] NOTIFY | Iphone 13 Pro connesso
+[18/02/2022 21:21:00] NOTIFY | Checker terminati
+[18/02/2022 21:21:00] NOTIFY | Mail terminato
+[18/02/2022 21:21:00] NOTIFY | UpdateTable terminato
+[18/02/2022 21:21:00] NOTIFY | Programma terminato
+[18/02/2022 21:21:09] NOTIFY | Impianti caricati con successo
+[18/02/2022 21:21:09] NOTIFY | Tabelle caricate con successo
+[18/02/2022 21:21:09] NOTIFY | Programma avviato con successo
+[18/02/2022 21:21:16] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Modem  192.168.0.1 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 21:21:30] NOTIFY | Impianto aggiunto con successo {192.168.1.75}{Tv Giovanni}
+[18/02/2022 21:22:28] NOTIFY | Checker terminati
+[18/02/2022 21:22:28] NOTIFY | Mail terminato
+[18/02/2022 21:22:28] NOTIFY | UpdateTable terminato
+[18/02/2022 21:22:28] NOTIFY | Programma terminato
+[18/02/2022 21:23:01] NOTIFY | Impianti caricati con successo
+[18/02/2022 21:23:01] NOTIFY | Tabelle caricate con successo
+[18/02/2022 21:23:01] NOTIFY | Programma avviato con successo
+[18/02/2022 21:23:08] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Modem  192.168.0.1 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 21:31:19] NOTIFY | Impianti caricati con successo
+[18/02/2022 21:31:19] NOTIFY | Tabelle caricate con successo
+[18/02/2022 21:31:19] NOTIFY | Programma avviato con successo
+[18/02/2022 21:31:26] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Modem  192.168.0.1 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 21:55:14] NOTIFY | Impianti caricati con successo
+[18/02/2022 21:55:14] NOTIFY | Tabelle caricate con successo
+[18/02/2022 21:55:14] NOTIFY | Programma avviato con successo
+[18/02/2022 21:55:21] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Modem  192.168.0.1 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 21:56:09] NOTIFY | Impianto aggiunto con successo {192.168.1.75}{Tv Giovanni}
+[18/02/2022 21:56:52] NOTIFY | Impianto aggiunto con successo {192.168.1.46}{Test 1}
+[18/02/2022 21:56:58] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Test 1  192.168.1.46 Id: 13  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 22:03:40] NOTIFY | Checker terminati
+[18/02/2022 22:03:40] NOTIFY | Mail terminato
+[18/02/2022 22:03:40] NOTIFY | UpdateTable terminato
+[18/02/2022 22:03:40] NOTIFY | Programma terminato
+[18/02/2022 22:03:52] NOTIFY | Impianti caricati con successo
+[18/02/2022 22:03:52] NOTIFY | Tabelle caricate con successo
+[18/02/2022 22:03:52] NOTIFY | Programma avviato con successo
+[18/02/2022 22:03:59] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Test 1  192.168.1.46 Id: 13  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Modem  192.168.0.1 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 22:31:36] NOTIFY | Impianto aggiunto con successo {192.168.1.124}{Test 2}
+[18/02/2022 22:31:42] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Test 2  192.168.1.124 Id: 13  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 22:33:44] NOTIFY | Impianti caricati con successo
+[18/02/2022 22:33:44] NOTIFY | Tabelle caricate con successo
+[18/02/2022 22:33:44] NOTIFY | Programma avviato con successo
+[18/02/2022 22:33:51] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Modem  192.168.0.1 Id: 7  OFFLINE  Errore: Connessione non riuscita]
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Test 2  192.168.1.124 Id: 13  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Galaxy Note10  192.168.96.26 Id: 6  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Test 1  192.168.1.46 Id: 12  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 22:34:24] NOTIFY | Impianto aggiunto con successo {192.168.125}{Test 3}
+[18/02/2022 22:34:30] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Test 3  192.168.125 Id: 12  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[18/02/2022 22:35:00] NOTIFY | Checker terminati
+[18/02/2022 22:35:00] NOTIFY | Mail terminato
+[18/02/2022 22:35:00] NOTIFY | UpdateTable terminato
+[18/02/2022 22:35:00] NOTIFY | Programma terminato

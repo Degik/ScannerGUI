@@ -82,3 +82,238 @@
 [16/02/2022 19:51:56] NOTIFY | Impianti caricati con successo
 [16/02/2022 19:51:56] NOTIFY | Tabelle caricate con successo
 [16/02/2022 19:51:56] NOTIFY | Utente caricato con successo
+[16/02/2022 20:16:44] NOTIFY | Programma avviato con successo
+[16/02/2022 20:16:44] NOTIFY | Impianti caricati con successo
+[16/02/2022 20:16:44] NOTIFY | Tabelle caricate con successo
+[16/02/2022 20:16:44] NOTIFY | Utente caricato con successo
+[16/02/2022 20:23:10] NOTIFY | Programma avviato con successo
+[16/02/2022 20:23:10] NOTIFY | Impianti caricati con successo
+[16/02/2022 20:23:10] NOTIFY | Tabelle caricate con successo
+[16/02/2022 20:23:10] NOTIFY | Utente caricato con successo
+[16/02/2022 20:23:16] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 22:09:37] NOTIFY | Programma avviato con successo
+[16/02/2022 22:09:37] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:09:37] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:09:37] NOTIFY | Utente caricato con successo
+[16/02/2022 22:10:03] NOTIFY | Programma avviato con successo
+[16/02/2022 22:10:03] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:10:03] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:10:03] NOTIFY | Utente caricato con successo
+[16/02/2022 22:10:09] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 22:11:31] NOTIFY | Programma avviato con successo
+[16/02/2022 22:11:31] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:11:31] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:11:31] NOTIFY | Utente caricato con successo
+[16/02/2022 22:13:48] NOTIFY | Programma avviato con successo
+[16/02/2022 22:13:48] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:13:48] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:13:48] NOTIFY | Utente caricato con successo
+[16/02/2022 22:17:28] NOTIFY | Programma avviato con successo
+[16/02/2022 22:17:28] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:17:28] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:17:28] NOTIFY | Utente caricato con successo
+[16/02/2022 22:17:34] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 22:18:45] NOTIFY | Programma avviato con successo
+[16/02/2022 22:18:45] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:18:45] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:18:45] NOTIFY | Utente caricato con successo
+[16/02/2022 22:18:51] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 22:19:30] NOTIFY | Programma avviato con successo
+[16/02/2022 22:19:30] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:19:30] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:19:30] NOTIFY | Utente caricato con successo
+[16/02/2022 22:19:36] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 22:24:44] NOTIFY | Programma avviato con successo
+[16/02/2022 22:24:44] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:24:44] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:24:44] NOTIFY | Utente caricato con successo
+[16/02/2022 22:24:50] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 22:25:22] NOTIFY | Impianto aggiunto con successo {192.168.1.12}{Primo nodo}
+[16/02/2022 22:25:28] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Primo nodo  192.168.1.12 Id: 7  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 22:25:42] NOTIFY | Impianto aggiunto con successo {192.168.1.15}{Secondo nodo}
+[16/02/2022 22:25:48] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 22:26:11] NOTIFY | Programma avviato con successo
+[16/02/2022 22:26:11] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:26:11] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:26:11] NOTIFY | Utente caricato con successo
+[16/02/2022 22:26:17] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  192.168.1.12 Id: 7  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 22:28:06] NOTIFY | Programma avviato con successo
+[16/02/2022 22:28:06] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:28:06] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:28:06] NOTIFY | Utente caricato con successo
+[16/02/2022 22:30:10] NOTIFY | Programma avviato con successo
+[16/02/2022 22:30:10] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:30:10] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:30:10] NOTIFY | Utente caricato con successo
+[16/02/2022 22:30:16] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 22:35:20] NOTIFY | Programma avviato con successo
+[16/02/2022 22:35:20] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:35:20] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:35:20] NOTIFY | Utente caricato con successo
+[16/02/2022 22:37:40] NOTIFY | Programma avviato con successo
+[16/02/2022 22:37:40] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:37:40] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:37:40] NOTIFY | Utente caricato con successo
+[16/02/2022 22:39:52] NOTIFY | Programma avviato con successo
+[16/02/2022 22:39:52] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:39:52] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:39:52] NOTIFY | Utente caricato con successo
+[16/02/2022 22:39:58] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  192.168.1.12 Id: 7  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 22:40:46] NOTIFY | Programma avviato con successo
+[16/02/2022 22:40:46] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:40:46] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:40:46] NOTIFY | Utente caricato con successo
+[16/02/2022 22:41:22] NOTIFY | Programma avviato con successo
+[16/02/2022 22:41:22] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:41:22] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:41:22] NOTIFY | Utente caricato con successo
+[16/02/2022 22:42:12] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  192.168.1.12 Id: 7  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 22:42:37] NOTIFY | Programma avviato con successo
+[16/02/2022 22:42:37] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:42:37] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:42:37] NOTIFY | Utente caricato con successo
+[16/02/2022 22:42:52] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  192.168.1.12 Id: 7  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 22:43:01] NOTIFY | Programma avviato con successo
+[16/02/2022 22:43:01] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:43:01] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:43:01] NOTIFY | Utente caricato con successo
+[16/02/2022 22:45:52] NOTIFY | Programma avviato con successo
+[16/02/2022 22:45:52] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:45:52] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:45:53] NOTIFY | Utente caricato con successo
+[16/02/2022 22:48:59] NOTIFY | Programma avviato con successo
+[16/02/2022 22:48:59] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:48:59] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:48:59] NOTIFY | Utente caricato con successo
+[16/02/2022 22:49:05] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 22:54:36] NOTIFY | Programma avviato con successo
+[16/02/2022 22:54:36] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:54:36] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:54:36] NOTIFY | Utente caricato con successo
+[16/02/2022 22:54:42] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 22:55:23] NOTIFY | Programma avviato con successo
+[16/02/2022 22:55:23] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:55:23] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:55:23] NOTIFY | Utente caricato con successo
+[16/02/2022 22:55:46] NOTIFY | Programma avviato con successo
+[16/02/2022 22:55:46] NOTIFY | Impianti caricati con successo
+[16/02/2022 22:55:46] NOTIFY | Tabelle caricate con successo
+[16/02/2022 22:55:46] NOTIFY | Utente caricato con successo
+[16/02/2022 22:55:52] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  192.168.1.12 Id: 7  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 23:33:11] NOTIFY | Programma avviato con successo
+[16/02/2022 23:33:11] NOTIFY | Impianti caricati con successo
+[16/02/2022 23:33:11] NOTIFY | Tabelle caricate con successo
+[16/02/2022 23:33:11] NOTIFY | Utente caricato con successo
+[16/02/2022 23:50:11] NOTIFY | Programma avviato con successo
+[16/02/2022 23:50:11] NOTIFY | Impianti caricati con successo
+[16/02/2022 23:50:11] NOTIFY | Tabelle caricate con successo
+[16/02/2022 23:50:11] NOTIFY | Utente caricato con successo
+[16/02/2022 23:50:17] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Gimigliano  192.168.1.1 Id: 1  OFFLINE  Errore: Connessione non riuscita]
+/// [Gagliano  192.168.1.10 Id: 2  OFFLINE  Errore: Connessione non riuscita]
+/// [Catanzaro lido  10.0.0.7 Id: 3  OFFLINE  Errore: Connessione non riuscita]
+/// [Iphone 13 Pro  172.20.10.2 Id: 4  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  10.0.0.15 Id: 5  OFFLINE  Errore: Connessione non riuscita]
+/// [Primo nodo  192.168.1.12 Id: 7  OFFLINE  Errore: Connessione non riuscita]
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
+[16/02/2022 23:50:58] NOTIFY | Checker terminati
+[16/02/2022 23:50:58] NOTIFY | Mail terminato
+[16/02/2022 23:50:58] NOTIFY | UpdateTable terminato
+[16/02/2022 23:50:58] NOTIFY | Programma terminato
+[16/02/2022 23:58:08] NOTIFY | Impianti caricati con successo
+[16/02/2022 23:58:08] NOTIFY | Tabelle caricate con successo
+[16/02/2022 23:58:08] NOTIFY | Programma avviato con successo
+[16/02/2022 23:58:14] NOTIFY | Ecco la lista degli impianti non funzionanti:
+/////////////////////////////////////////////////////////////////////////////////////////////
+/// [Secondo nodo  192.168.1.15 Id: 8  OFFLINE  Errore: Connessione non riuscita]
+////////////////////////////////////////////////////////////////////////////////////////////
