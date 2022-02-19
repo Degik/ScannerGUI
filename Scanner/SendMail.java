@@ -1,5 +1,15 @@
 import javax.mail.*;
 import javax.mail.internet.MimeMessage;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 import javax.mail.internet.InternetAddress;
 import java.util.Properties;
 
@@ -42,8 +52,10 @@ public class SendMail {
 			messaggio.setSubject(subject);
 			messaggio.setText(messaggioText);
 			Transport.send(messaggio);
-			//System.out.println("Messaggio mandato a " + destinatario);
+			Console.changeConnectionIcon(true);
 		} catch (MessagingException e) {
+			Console.changeConnectionIcon(false);
+			Console.writeLog("Errore di connessione con il server mail\n", 1);
 			e.printStackTrace();
 		}
 	}

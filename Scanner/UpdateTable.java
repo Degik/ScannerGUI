@@ -1,6 +1,7 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
 
 import org.eclipse.jface.viewers.TableViewer;
@@ -20,6 +21,7 @@ public class UpdateTable implements Runnable {
 	private Display display;
 	private ReentrantLock lock = new ReentrantLock();
 	private StyledText consolePrint;
+	private final AtomicBoolean running = new AtomicBoolean(false);
 	
 	public UpdateTable(TableViewer tableViewer, TableColumn[] columns, ArrayList<Address> hosts, Display display, StyledText consolePrint) {
 		this.tableViewer = tableViewer;
@@ -31,8 +33,9 @@ public class UpdateTable implements Runnable {
 	
 	@SuppressWarnings("static-access")
 	public void run() {
-		sleep(5);
-		while(true) {
+		sleep(7);
+		running.set(true);
+		while(running.get()) {
 			Table table = tableViewer.getTable();
 			display.getDefault().asyncExec(new Runnable() {
 				public void run() {
@@ -71,8 +74,12 @@ public class UpdateTable implements Runnable {
 					lock.unlock();
 				}
 			});
-			sleep(15);
+			sleep(10);
 		}
+	}
+	
+	public void setStop() {
+		running.set(false);
 	}
 	
 	public static void sleep(int timeLongMillis) {

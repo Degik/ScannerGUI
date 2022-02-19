@@ -16,6 +16,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
@@ -64,12 +65,17 @@ public class Console {
 	private static ObjectMapper objectMapper = null;  // objectMapper
 	private static ArrayList<Address> hosts = null;   // hosts
 	private static User user = null; 				  // Utente dove vengono salvate le informazioni mittente, password, destinatario
-	private static Set<Address> badHosts = new HashSet<>();
-	private static Set<Address> goodHosts = new HashSet<>();
+	//private static Set<Address> badHosts = new HashSet<>();
+	//private static Set<Address> goodHosts = new HashSet<>();
+	private static LinkedList<Address> badHosts = new LinkedList<>();
+	private static LinkedList<Address> goodHosts = new LinkedList<>();
 	private ReentrantLock lock = new ReentrantLock();
 	private Table table;
 	private static String logPath = "Logs/" + getDay() + ".txt";
 	private static ArrayList<Thread> threadList;
+	private static ArrayList<Checker> checkerList;
+	public static int counterId = 0;
+	public static Label connectionStatus;
 	public static Object mutex = new Object();
 	
 	//private Table table;
@@ -156,6 +162,7 @@ public class Console {
 			recipient = prop.getProperty("DESTINATARIO");
 			
 			user = new User(sender,password,recipient);
+			writeLog("Utente caricato con successo\n", 3);
 			
 			// Recupero le informazioni host
 			ArrayList<String> inputSettings = new ArrayList<>();
@@ -195,25 +202,29 @@ public class Console {
 			objectMapper.writeValue(hostsJson, hosts);
 		} catch(IOException e) {
 			consolePrint.append(dateReturn() + "Errore creazione backup\n");
+			writeLog("Errore creazione backup", 1);
 		}
-		
+		counterId = maxId();
 		for(Address h : hosts) {
 			h.setStatus(false);
 		}
 		
 		// Gestisco ed avvio tutti i thread
 		threadList = new ArrayList<>();
+		checkerList = new ArrayList<>();
 		
-		Mail mail = new Mail(goodHosts, badHosts, user.getRecipient(), user.getSender(), user.getPassword(), consolePrint, threadList);
+		Mail mail = new Mail(goodHosts, badHosts, user.getRecipient(), user.getSender(), user.getPassword(), consolePrint);
 		Thread threadMail = new Thread(mail);
 		threadMail.start();
 		
 		for(Address h : hosts) {
 			Checker check = new Checker(h.getAddressId(), h, badHosts, goodHosts, consolePrint);
+			checkerList.add(check);
 			Thread th = new Thread(check);
 			threadList.add(th);
 			th.start();
 		}
+		writeLog("Impianti caricati con successo\n", 3);
 		
 		Label lblListaImpianti = new Label(shell, SWT.NONE);
 		lblListaImpianti.setBounds(10, 191, 100, 15);
@@ -284,11 +295,13 @@ public class Console {
 		Thread tableThread = new Thread(updateTable); // Creo il thread
 		tableThread.start();
 		
+		writeLog("Tabelle caricate con successo\n", 3);
+		
 		Button addHost = new Button(shell, SWT.NONE);
 		addHost.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				AddHost addHost = new AddHost(hosts, consolePrint, objectMapper, tableViewer, threadList, goodHosts, badHosts);
+				AddHost addHost = new AddHost(hosts, consolePrint, objectMapper, tableViewer, threadList, goodHosts, badHosts, checkerList);
 				addHost.open();
 			}
 		});
@@ -307,19 +320,21 @@ public class Console {
 					lock.lock();
 					// Rimuovo l'elemento selezionato dalla lista hosts
 					hosts.remove(pos);
-					// Ricavo il thread riferimento
-					Thread th = threadList.get(pos);
 					// Lo cancello dalla lista thread
 					threadList.remove(pos);
 					// Avvio lo stop del thread
-					th.interrupt();
-					// Verifico lo stato del thread
-					if(!th.isInterrupted()) {
-						th.interrupt();
-					}
+					Checker checker = checkerList.get(pos);
+					checkerList.remove(pos);
+					checker.setStop();
 					// Aggiorno la tabella a pieno
 					table.remove(pos);
 					consolePrint.append(dateReturn() + "Impianto cancellato\n");
+					try {
+						objectMapper.writeValue(hostsJson, hosts);
+					} catch(IOException e1) {
+						consolePrint.append(dateReturn() + "Errore creazione backup\n");
+						writeLog("Errore creazione backup", 1);
+					}
 					lock.unlock();
 				}
 			}
@@ -332,36 +347,44 @@ public class Console {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				consolePrint.append(dateReturn() + "Sto terminando i thread");
-				for(Thread th : threadList) {
-					th.stop();
+				for(Checker ch : checkerList) {
+					ch.setStop();
 				}
-				threadMail.stop();
-				for(Address h : hosts) {
-					h.setStatus(false);
-				}
+				writeLog("Checker terminati\n", 3);
+				mail.setStop();
+				writeLog("Mail terminato\n", 3);
+				updateTable.setStop();
+				writeLog("UpdateTable terminato\n", 3);
 				try {
 					objectMapper.writeValue(hostsJson, hosts);
 				} catch(IOException e1) {
 					e1.printStackTrace();
 				}
-				sleep(3);
+				writeLog("Programma terminato\n", 3);
+				sleep(1);
 				shell.close();
 			}
 		});
 		exit.setText("Esci");
 		exit.setBounds(848, 408, 100, 33);
 		
+		connectionStatus = new Label(shell, SWT.NONE);
+		connectionStatus.setBounds(841, 191, 107, 27);
+		FileInputStream imageConnectionStable = null;
+		try {
+			imageConnectionStable = new FileInputStream("/Users/davidebulotta/eclipse-workspace/Scanner GUI/icons/goodConnection.png");
+		} catch(FileNotFoundException e) {
+			writeLog("File godConnection.png non trovato! il file dovrebbe trovarsi nella cartella icons!\n", 1);
+			e.printStackTrace();
+		}
+		Image imageConnection = new Image(Display.getDefault(), imageConnectionStable);
+		connectionStatus.setImage(imageConnection);
 		writeLog("Programma avviato con successo\n", 3);
-		writeLog("Impianti caricati con successo\n", 3);
-		writeLog("Tabelle caricate con successo\n", 3);
-		writeLog("Utente caricato con successo\n", 3);
 	}
 	
 	private boolean manageBackup(StyledText consolePrint) {
-		boolean checkDir = false;
 		boolean res = true; // Se vero prelevo i dati backup
 		if(!backupJson.exists()) {
-			checkDir = true;
 			res = false;
 			lock.lock();
 			consolePrint.append(dateReturn() + "Cartella backup non trovata!\n");
@@ -471,7 +494,7 @@ public class Console {
 		if(!dayLog.exists()) {
 			try {
 				dayLog.createNewFile();
-				consolePrint.append(dateReturn() + "Nuovo file log creato");
+				writeConsole(consolePrint, "Nuovo file log creato\n");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -517,6 +540,36 @@ public class Console {
 		}
 	}
 	
+	public static void changeConnectionIcon(boolean status) {
+		if(status) {
+			Display.getDefault().asyncExec(new Runnable() {
+				public void run() {
+					FileInputStream imageConnectionOnline = null;
+					try {
+						imageConnectionOnline = new FileInputStream("/Users/davidebulotta/eclipse-workspace/Scanner GUI/icons/goodConnection.png");
+					} catch (FileNotFoundException e1) {
+						writeLog("File goodConnection.png non trovato! dovrebbe situarsi nella cartella icons\n", 1);
+					}
+					Image iconGoodStatus = new Image(Display.getDefault(),imageConnectionOnline);
+					connectionStatus.setImage(iconGoodStatus);
+				}
+			});
+		} else {
+			Display.getDefault().asyncExec(new Runnable() {
+				public void run() {
+					FileInputStream imageConnectionOffline = null;
+					try {
+						imageConnectionOffline = new FileInputStream("/Users/davidebulotta/eclipse-workspace/Scanner GUI/icons/notConnection.png");
+					} catch (FileNotFoundException e1) {
+						writeLog("File notConnection.png non trovato! dovrebbe situarsi nella cartella icons\n", 1);
+					}
+					Image iconBadStatus = new Image(Display.getDefault(),imageConnectionOffline);
+					connectionStatus.setImage(iconBadStatus);
+				}
+			});
+		}
+	}
+	
 	public synchronized static void writeConsole(StyledText consolePrint, String text) {
 		Display.getDefault().asyncExec(new Runnable() {
 			public void run() {
@@ -528,5 +581,15 @@ public class Console {
 				});
 			}
 		});
+	}
+	
+	public int maxId() {
+		int max = 0;
+		for(Address h : hosts) {
+			if(max < h.getAddressId()) {
+				max = h.getAddressId();
+			}
+		}
+		return ++max;
 	}
 }

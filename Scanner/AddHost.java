@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Set;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -35,15 +36,16 @@ public class AddHost {
 	private File hostsJson;
 	private TableViewer tableViewer;
 	private ArrayList<Thread> threadList;
-	private Set<Address> goodHosts;
-	private Set<Address> badHosts;
+	private ArrayList<Checker> checkerList;
+	private LinkedList<Address> goodHosts;
+	private LinkedList<Address> badHosts;
 	private ReentrantLock lock = new ReentrantLock();
 	
 	public AddHost() {
 		// Vuoto
 	}
 	
-	public AddHost(ArrayList<Address> hosts, StyledText consolePrint, ObjectMapper objectMapper, TableViewer tableViewer, ArrayList<Thread> threadList, Set<Address> goodHosts, Set<Address> badHosts) {
+	public AddHost(ArrayList<Address> hosts, StyledText consolePrint, ObjectMapper objectMapper, TableViewer tableViewer, ArrayList<Thread> threadList, LinkedList<Address> goodHosts, LinkedList<Address> badHosts, ArrayList<Checker> checkerList) {
 		this.hosts = hosts;
 		this.consolePrint = consolePrint;
 		this.objectMapper = objectMapper;
@@ -52,6 +54,7 @@ public class AddHost {
 		this.threadList = threadList;
 		this.badHosts = badHosts;
 		this.goodHosts = goodHosts;
+		this.checkerList = checkerList;
 	}
 	
 	/**
@@ -110,7 +113,8 @@ public class AddHost {
 					MessageDialog.openError(Display.getDefault().getActiveShell(), "Errore", "Devi inserire degli argomenti!");
 				} else {
 					//String name, String host, int addressId, boolean status
-					Address host = new Address(textAddress.getText(), textHost.getText(), hosts.size() + 1, false);
+					Address host = new Address(textAddress.getText(), textHost.getText(), Console.counterId, false);
+					Console.counterId++;
 					hosts.add(host);
 					lock.lock();
 					try {
@@ -126,13 +130,14 @@ public class AddHost {
 					item.setText(2, host.getHost());
 					// Creo il checker
 					Checker check = new Checker(host.getAddressId(), host, badHosts, goodHosts, consolePrint);
+					checkerList.add(check);
 					// Creo il thread
 					Thread th = new Thread(check);
 					// Aggiungo il thread alla lista
 					threadList.add(th);
 					// Avvio il thread
 					th.start();
-					consolePrint.append(Console.dateReturn() + "Impianto aggiunto con successo {" + textHost.getText() + "} {" + textAddress.getText() + "}");
+					consolePrint.append(Console.dateReturn() + "Impianto aggiunto con successo {" + textHost.getText() + "} {" + textAddress.getText() + "}\n");
 					Console.writeLog("Impianto aggiunto con successo {" + textHost.getText() + "}" + "{" + textAddress.getText() + "}\n", 3);
 					lock.unlock();
 					MessageDialog.openConfirm(Display.getDefault().getActiveShell(), "Successo", "Impianto aggiunto");
