@@ -46,10 +46,10 @@ public class UpdateTable implements Runnable {
 						if(address.getStatus()) {
 							FileInputStream iconGreen = null;
 							try {
-								iconGreen = new FileInputStream("/Users/davidebulotta/eclipse-workspace/Scanner GUI/icons/online.png");
+								iconGreen = new FileInputStream("icons\\online.png");
 							} catch(FileNotFoundException e1) {
-								Console.writeConsole(consolePrint, "Icona online.png non trovata");
-								Console.writeLog("Icona online.png non trovata! cercare nella cartella icons", 1);
+								Console.writeConsole(consolePrint, "Icona online.png non trovata\n");
+								Console.writeLog("Icona online.png non trovata! cercare nella cartella icons\n", 1);
 								e1.printStackTrace();
 							}
 							Image statusIconOnline = new Image(display.getDefault(), iconGreen);
@@ -57,10 +57,10 @@ public class UpdateTable implements Runnable {
 						} else {
 							FileInputStream iconRed = null;
 							try {
-								iconRed = new FileInputStream("/Users/davidebulotta/eclipse-workspace/Scanner GUI/icons/offline.png");
+								iconRed = new FileInputStream("icons\\offline.png");
 							} catch(FileNotFoundException e1) {
-								Console.writeConsole(consolePrint, "Icona offline.png non trovata");
-								Console.writeLog("Icona onffline.png non trovata! cercare nella cartella icons", 1);
+								Console.writeConsole(consolePrint, "Icona offline.png non trovata\n");
+								Console.writeLog("Icona onffline.png non trovata! cercare nella cartella icons\n", 1);
 								e1.printStackTrace();
 							}
 							Image statusIconOffline = new Image(display.getDefault(), iconRed);

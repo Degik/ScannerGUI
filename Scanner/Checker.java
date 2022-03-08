@@ -103,7 +103,7 @@ public class Checker implements Runnable {
 				Console.writeConsole(consolePrint, "Mi sto svegliando " + Thread.currentThread().getName() + "\n");
 			}*/
 		}
-		Console.writeConsole(consolePrint, "Sono stato terminato (quindi sono uscito dal while)" + Thread.currentThread().getName() +"\n");
+		Console.writeLog("Sono stato terminato (quindi sono uscito dal while) " + Thread.currentThread().getName() + "\n", 3);
 	}
 	
 	public int getCheckId() {

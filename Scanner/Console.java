@@ -147,7 +147,7 @@ public class Console {
 			// Prendo i dati
 			Properties prop = new Properties();
 			try {
-				FileInputStream input = new FileInputStream("/Users/davidebulotta/eclipse-workspace/Scanner GUI/src/UserSetting.properties");
+				FileInputStream input = new FileInputStream("UserSetting.properties");
 				prop.load(input);
 			} catch (FileNotFoundException e) {
 				consolePrint.append(dateReturn() + "Non ho trovato il file UserSetting.properties\n");
@@ -166,7 +166,7 @@ public class Console {
 			
 			// Recupero le informazioni host
 			ArrayList<String> inputSettings = new ArrayList<>();
-			try (BufferedReader br = new BufferedReader(new FileReader("/Users/davidebulotta/eclipse-workspace/Scanner GUI/src/config.txt"))) {
+			try (BufferedReader br = new BufferedReader(new FileReader("config.txt"))) {
 				String line;
 				while((line = br.readLine()) != null) {
 					inputSettings.add(line);
@@ -263,7 +263,7 @@ public class Console {
 			if(address.getStatus()) {
 				FileInputStream iconGreen = null;
 				try {
-					iconGreen = new FileInputStream("/Users/davidebulotta/eclipse-workspace/Scanner GUI/icons/online.png");
+					iconGreen = new FileInputStream("icons\\online.png");
 				} catch (FileNotFoundException e1) {
 					writeConsole(consolePrint, "Icona online.png non trovata");
 					writeLog("Icona online.png non trovata! cercare nella cartella icons", 1);
@@ -275,7 +275,7 @@ public class Console {
 			} else {
 				FileInputStream iconRed = null;
 				try {
-					iconRed = new FileInputStream("/Users/davidebulotta/eclipse-workspace/Scanner GUI/icons/offline.png");
+					iconRed = new FileInputStream("icons\\offline.png");
 				} catch (FileNotFoundException e1) {
 					writeConsole(consolePrint, "Icona offline.png non trovata");
 					writeLog("Icona offline.png non trovata! cercare nella cartella icons", 1);
@@ -372,7 +372,7 @@ public class Console {
 		connectionStatus.setBounds(841, 191, 107, 27);
 		FileInputStream imageConnectionStable = null;
 		try {
-			imageConnectionStable = new FileInputStream("/Users/davidebulotta/eclipse-workspace/Scanner GUI/icons/goodConnection.png");
+			imageConnectionStable = new FileInputStream("icons\\goodConnection.png");
 		} catch(FileNotFoundException e) {
 			writeLog("File godConnection.png non trovato! il file dovrebbe trovarsi nella cartella icons!\n", 1);
 			e.printStackTrace();
@@ -546,7 +546,7 @@ public class Console {
 				public void run() {
 					FileInputStream imageConnectionOnline = null;
 					try {
-						imageConnectionOnline = new FileInputStream("/Users/davidebulotta/eclipse-workspace/Scanner GUI/icons/goodConnection.png");
+						imageConnectionOnline = new FileInputStream("icons\\goodConnection.png");
 					} catch (FileNotFoundException e1) {
 						writeLog("File goodConnection.png non trovato! dovrebbe situarsi nella cartella icons\n", 1);
 					}
@@ -559,7 +559,7 @@ public class Console {
 				public void run() {
 					FileInputStream imageConnectionOffline = null;
 					try {
-						imageConnectionOffline = new FileInputStream("/Users/davidebulotta/eclipse-workspace/Scanner GUI/icons/notConnection.png");
+						imageConnectionOffline = new FileInputStream("icons\\notConnection.png");
 					} catch (FileNotFoundException e1) {
 						writeLog("File notConnection.png non trovato! dovrebbe situarsi nella cartella icons\n", 1);
 					}
