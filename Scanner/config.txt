@@ -1,8 +1,8 @@
-Gimigliano
+Name1
 192.168.1.1
-Gagliano
+Name2
 192.168.1.10
-Tiriolo
+Name3
 192.168.1.12
-Catanzaro lido
+Name4
 10.0.0.7
